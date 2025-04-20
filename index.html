@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andrew Kuanyin IT Service Solutions | Secure Network Solutions</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; media-src 'self' https: data:">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -106,118 +107,22 @@
       color: var(--secondary);
     }
 
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: rgba(10, 25, 47, 0.95);
-      width: 220px;
-      padding: 15px 0;
-      border-radius: 5px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px) rotateX(-15deg);
-      transform-origin: top center;
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) rotateX(0);
-    }
-
-    .dropdown-menu li {
-      margin: 0;
-      padding: 8px 20px;
-    }
-
-    .dropdown-menu li a {
-      font-size: 14px;
-    }
-
-    /* 3D Rotating Background */
+    /* Background Styles */
     .bg-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      z-index: -2;
-      transform-style: preserve-3d;
-      transition: transform 1.5s ease-out;
+      z-index: -1;
+      background: var(--dark);
     }
 
     .bg-panel {
-      position: absolute;
       width: 100%;
       height: 100%;
-      background-size: cover;
-      background-position: center;
-      transform-origin: top center;
-      transition: transform 1s ease-out;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding-bottom: 150px;
-    }
-
-    .bg-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 25, 47, 0.7);
-    }
-
-    .bg-menu {
-      list-style: none;
-      transform: translateY(100%);
-      transition: transform 0.8s ease-out;
-      text-align: center;
-    }
-
-    .bg-menu li {
-      margin: 20px 0;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-
-    .bg-menu li a {
-      color: white;
-      font-size: 1.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 10px 30px;
-      background: rgba(0, 102, 255, 0.3);
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .bg-menu li a:hover {
-      background: rgba(0, 102, 255, 0.6);
-      transform: scale(1.05);
-    }
-
-    .bg-panel.active {
-      transform: rotateX(75deg) translateY(30%);
-    }
-
-    .bg-panel.active .bg-menu {
-      transform: translateY(0);
-    }
-
-    .bg-panel.active .bg-menu li {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: calc(0.1s * var(--i));
+      background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.3)),
+                 url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
     }
 
     /* Hero Section */
@@ -226,12 +131,10 @@
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden;
     }
 
     .hero-content {
       max-width: 700px;
-      transform: translateZ(50px);
     }
 
     .hero h1 {
@@ -244,14 +147,12 @@
       background-clip: text;
       color: transparent;
       text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-      transform: translateZ(30px);
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
       line-height: 1.6;
-      transform: translateZ(20px);
     }
 
     .btn {
@@ -266,36 +167,16 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
-      transform: translateZ(20px);
-      position: relative;
-      overflow: hidden;
     }
 
     .btn:hover {
-      transform: translateY(-5px) translateZ(20px);
+      transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
     }
 
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: all 0.5s ease;
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    /* Section Styles */
+    /* Sections */
     section {
       padding: 100px 0;
-      position: relative;
-      transform-style: preserve-3d;
     }
 
     section h2 {
@@ -303,130 +184,14 @@
       font-size: 2.5rem;
       margin-bottom: 50px;
       text-align: center;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      bottom: -10px;
-      left: 25%;
-      border-radius: 3px;
-    }
-
-    /* About Section */
-    .about {
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
-    }
-
-    .about p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    /* Services Section */
-    .services {
-      background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.1));
-    }
-
-    .service-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .service-item {
-      background: rgba(10, 25, 47, 0.7);
-      border-radius: 10px;
-      padding: 30px;
-      transition: all 0.5s ease;
-      border: 1px solid rgba(0, 102, 255, 0.2);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transform-style: preserve-3d;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, transparent, rgba(0, 102, 255, 0.1), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-
-    .service-item:hover {
-      transform: translateY(-10px) rotateY(5deg);
-      box-shadow: 0 15px 40px rgba(0, 102, 255, 0.3);
-      border-color: rgba(0, 212, 255, 0.4);
-    }
-
-    .service-item:hover::before {
-      transform: translateX(100%);
-    }
-
-    .service-item h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--secondary);
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .service-item p {
-      line-height: 1.6;
-      color: rgba(204, 214, 246, 0.8);
-    }
-
-    /* Contact Section */
-    .contact {
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
-    }
-
+    /* Contact Form */
     #contact-form {
       max-width: 600px;
       margin: 0 auto;
       display: grid;
       gap: 20px;
-      transform-style: preserve-3d;
-    }
-
-    #contact-form input,
-    #contact-form textarea {
-      width: 100%;
-      padding: 15px;
-      background: rgba(10, 25, 47, 0.7);
-      border: 1px solid rgba(0, 102, 255, 0.3);
-      border-radius: 5px;
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      transition: all 0.3s ease;
-    }
-
-    #contact-form input:focus,
-    #contact-form textarea:focus {
-      outline: none;
-      border-color: var(--secondary);
-      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-      transform: translateZ(10px);
-    }
-
-    #contact-form textarea {
-      min-height: 150px;
-      resize: vertical;
     }
 
     /* Footer */
@@ -434,75 +199,24 @@
       background: rgba(10, 25, 47, 0.95);
       padding: 30px 0;
       text-align: center;
-      border-top: 1px solid rgba(0, 102, 255, 0.2);
     }
 
-    .social-links {
-      margin-bottom: 20px;
-    }
-
-    .social-links a {
-      color: var(--text);
-      font-size: 1.5rem;
-      margin: 0 15px;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .social-links a:hover {
-      color: var(--secondary);
-      transform: translateY(-5px);
-    }
-
-    footer p {
-      color: rgba(204, 214, 246, 0.7);
-    }
-
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
       }
-
       nav ul {
         display: none;
       }
-
-      .service-list {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-
-      .bg-menu li a {
-        font-size: 1.2rem;
-        padding: 8px 20px;
-      }
-    }
-
-    /* Animation Classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .fade-in.active {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-<!-- 3D Rotating Background -->
-<div class="bg-container" id="bgContainer">
-  <div class="bg-panel" id="bgPanel" 
-       style="background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.3)),
-              url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;">
+  <!-- Background -->
+  <div class="bg-container">
+    <div class="bg-panel"></div>
   </div>
-</div> 
 
   <!-- Header -->
   <header id="header">
@@ -514,83 +228,64 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button id="menuToggle" class="btn" style="padding: 10px 20px;">
-          <i class="fas fa-bars"></i> Menu
-        </button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="fade-in">IT Service Solutions</h1>
-        <p class="fade-in" style="transition-delay: 0.2s">Reliable | Secure | Innovative</p>
-        <a href="#contact" class="btn fade-in" style="transition-delay: 0.4s">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="fade-in">
-        <p>I'm Andrew Kuanyin, a grad Computer Science student and emerging IT professional. I provide reliable and innovative IT services, including network setup, cybersecurity solutions, and technical support for businesses and individuals. Combining academic knowledge with practical experience, my goal is to make technology accessible, secure, and efficient for everyone.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="container">
-      <h2>Services</h2>
-      <div class="service-list">
-        <div class="service-item fade-in">
-          <h3><i class="fas fa-network-wired"></i> Network Management</h3>
-          <p>Setting up and managing secure, scalable networks for homes and businesses with optimal performance and reliability.</p>
-        </div>
-        <div class="service-item fade-in" style="transition-delay: 0.2s">
-          <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
-          <p>Protect your data and infrastructure with expert security solutions, including firewalls, VPNs, and security audits.</p>
-        </div>
-        <div class="service-item fade-in" style="transition-delay: 0.4s">
-          <h3><i class="fas fa-headset"></i> Tech Support</h3>
-          <p>Quick troubleshooting, installation, and maintenance of IT systems with rapid response times.</p>
+  <!-- Main Content -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>IT Service Solutions</h1>
+          <p>Reliable | Secure | Innovative</p>
+          <a href="#contact" class="btn">Get in Touch</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <form id="contact-form" 
-          action="https://formspree.io/f/xyzwggle" 
-          method="POST"
-          class="fade-in">
-      
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="hidden" name="_subject" value="New message from kuanyindeng.github.io">
-      
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      
-      <!-- reCAPTCHA v2 -->
-      <div class="g-recaptcha" 
-           data-sitekey="6LeK-h4rAAAAAKhKDs70yJvEVgysY4GKitKfpjK9" 
-           style="margin: 20px 0;"></div>
-      
-      <button type="submit" class="btn">Send Message</button>
-      
-      <!-- Form response message -->
-      <div id="form-alert" style="display:none; margin-top:20px; padding:15px; 
-           background:rgba(0,102,255,0.1); border-radius:5px;"></div>
-    </form>
-  </div>
-</section>
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div>
+          <p>I'm Andrew Kuanyin, a grad Computer Science student and emerging IT professional. I provide reliable and innovative IT services, including network setup, cybersecurity solutions, and technical support for businesses and individuals. Combining academic knowledge with practical experience, my goal is to make technology accessible, secure, and efficient for everyone.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="service-list">
+          <div class="service-item">
+            <h3><i class="fas fa-network-wired"></i> Network Management</h3>
+            <p>Setting up and managing secure, scalable networks for homes and businesses.</p>
+          </div>
+          <div class="service-item">
+            <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+            <p>Protect your data and infrastructure with expert security solutions.</p>
+          </div>
+          <div class="service-item">
+            <h3><i class="fas fa-headset"></i> Tech Support</h3>
+            <p>Quick troubleshooting, installation, and maintenance of IT systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_ACTUAL_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <div class="g-recaptcha" data-sitekey="6LeK-h4rAAAAAKhKDs70yJvEVgysY4GKitKfpjK9"></div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -604,55 +299,35 @@
   </footer>
 
   <script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      
+      if (grecaptcha.getResponse()) {
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            alert('Message sent successfully!');
+            form.reset();
+            grecaptcha.reset();
+          } else {
+            throw new Error('Failed to send');
+          }
+        })
+        .catch(() => {
+          alert('Error sending message. Please try again later.');
+        });
       } else {
-        header.classList.remove('scrolled');
+        alert('Please complete the reCAPTCHA');
       }
     });
-
-    // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    const fadeInOnScroll = function() {
-      fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (elementTop < windowHeight - 100) {
-          element.classList.add('active');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', fadeInOnScroll);
-    window.addEventListener('load', fadeInOnScroll);
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
-
-        // Close menu if open
-        if (bgPanel.classList.contains('active')) {
-          toggleMenu();
-        }
-      });
-    });
-    </script>
-
-<!-- Load reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </script>
+  
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
