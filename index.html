@@ -496,25 +496,13 @@
   </style>
 </head>
 <body>
- <!-- 3D Rotating Background -->
-<div class="bg-container" id="bgContainer" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+<!-- 3D Rotating Background -->
+<div class="bg-container" id="bgContainer">
   <div class="bg-panel" id="bgPanel" 
-       style="background-image: url('kua.png'); 
-              background-size: cover; 
-              background-position: center; 
-              background-repeat: no-repeat; 
-              width: 100%; 
-              height: 100%;">
-               
-    <ul class="bg-menu" id="bgMenu" style="position: relative; z-index: 1;">
-      <li style="--i: 1"><a href="#home">Home</a></li>
-      <li style="--i: 2"><a href="#about">About</a></li>
-      <li style="--i: 3"><a href="#services">Services</a></li>
-      <li style="--i: 4"><a href="#contact">Contact</a></li>
-    </ul>
-
+       style="background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.3)),
+              url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;">
   </div>
-</div>
+</div> 
 
   <!-- Header -->
   <header id="header">
@@ -609,7 +597,7 @@
     <div class="container">
       <div class="social-links">
         <a href="https://www.facebook.com/kuanyin.deng" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="www.linkedin.com/in/andrew-kuanyin-9b5aaa1a8" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/andrew-kuanyin-9b5aaa1a8" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
       <p>&copy; 2025 Kuanyin Deng. All rights reserved.</p>
     </div>
@@ -662,45 +650,7 @@
         }
       });
     });
-
-    // Form submission
-<!-- Form submission handler -->
-<script>
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const alertBox = document.getElementById('form-alert');
-    
-    // Verify reCAPTCHA first
-    if (grecaptcha.getResponse() === '') {
-      alertBox.style.display = 'block';
-      alertBox.innerHTML = '⚠️ Please complete the reCAPTCHA';
-      return;
-    }
-    
-    // Show loading state
-    alertBox.style.display = 'block';
-    alertBox.innerHTML = 'Sending your message...';
-    
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        alertBox.innerHTML = '✓ Thank you! Your message has been sent.';
-        form.reset();
-        grecaptcha.reset();
-      } else {
-        throw new Error('Failed to send');
-      }
-    })
-    .catch(() => {
-      alertBox.innerHTML = '⚠️ Error! Please email me directly at andrewkuanyin497@gmail.com';
-    });
-  });
-</script>
+    </script>
 
 <!-- Load reCAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
