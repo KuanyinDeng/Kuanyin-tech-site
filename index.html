@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andrew Kuanyin IT Service Solutions | Secure Network Solutions</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; media-src 'self' https: data:">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -107,22 +106,118 @@
       color: var(--secondary);
     }
 
-    /* Background Styles */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(10, 25, 47, 0.95);
+      width: 220px;
+      padding: 15px 0;
+      border-radius: 5px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) rotateX(-15deg);
+      transform-origin: top center;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) rotateX(0);
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+      font-size: 14px;
+    }
+
+    /* 3D Rotating Background */
     .bg-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      z-index: -1;
-      background: var(--dark);
+      z-index: -2;
+      transform-style: preserve-3d;
+      transition: transform 1.5s ease-out;
     }
 
     .bg-panel {
+      position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.3)),
-                 url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      transform-origin: top center;
+      transition: transform 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 150px;
+    }
+
+    .bg-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 25, 47, 0.7);
+    }
+
+    .bg-menu {
+      list-style: none;
+      transform: translateY(100%);
+      transition: transform 0.8s ease-out;
+      text-align: center;
+    }
+
+    .bg-menu li {
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .bg-menu li a {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 30px;
+      background: rgba(0, 102, 255, 0.3);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .bg-menu li a:hover {
+      background: rgba(0, 102, 255, 0.6);
+      transform: scale(1.05);
+    }
+
+    .bg-panel.active {
+      transform: rotateX(75deg) translateY(30%);
+    }
+
+    .bg-panel.active .bg-menu {
+      transform: translateY(0);
+    }
+
+    .bg-panel.active .bg-menu li {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: calc(0.1s * var(--i));
     }
 
     /* Hero Section */
@@ -131,10 +226,12 @@
       display: flex;
       align-items: center;
       position: relative;
+      overflow: hidden;
     }
 
     .hero-content {
       max-width: 700px;
+      transform: translateZ(50px);
     }
 
     .hero h1 {
@@ -147,12 +244,14 @@
       background-clip: text;
       color: transparent;
       text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      transform: translateZ(30px);
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
       line-height: 1.6;
+      transform: translateZ(20px);
     }
 
     .btn {
@@ -167,16 +266,36 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+      transform: translateZ(20px);
+      position: relative;
+      overflow: hidden;
     }
 
     .btn:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) translateZ(20px);
       box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
     }
 
-    /* Sections */
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    /* Section Styles */
     section {
       padding: 100px 0;
+      position: relative;
+      transform-style: preserve-3d;
     }
 
     section h2 {
@@ -184,14 +303,130 @@
       font-size: 2.5rem;
       margin-bottom: 50px;
       text-align: center;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    /* Contact Form */
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      bottom: -10px;
+      left: 25%;
+      border-radius: 3px;
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    /* Services Section */
+    .services {
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.1));
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .service-item {
+      background: rgba(10, 25, 47, 0.7);
+      border-radius: 10px;
+      padding: 30px;
+      transition: all 0.5s ease;
+      border: 1px solid rgba(0, 102, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(0, 102, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px) rotateY(5deg);
+      box-shadow: 0 15px 40px rgba(0, 102, 255, 0.3);
+      border-color: rgba(0, 212, 255, 0.4);
+    }
+
+    .service-item:hover::before {
+      transform: translateX(100%);
+    }
+
+    .service-item h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .service-item p {
+      line-height: 1.6;
+      color: rgba(204, 214, 246, 0.8);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
+    }
+
     #contact-form {
       max-width: 600px;
       margin: 0 auto;
       display: grid;
       gap: 20px;
+      transform-style: preserve-3d;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      background: rgba(10, 25, 47, 0.7);
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      border-radius: 5px;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      transform: translateZ(10px);
+    }
+
+    #contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
     }
 
     /* Footer */
@@ -199,135 +434,243 @@
       background: rgba(10, 25, 47, 0.95);
       padding: 30px 0;
       text-align: center;
+      border-top: 1px solid rgba(0, 102, 255, 0.2);
     }
 
-    /* Responsive */
+    footer p {
+      color: rgba(204, 214, 246, 0.7);
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
       }
+
       nav ul {
         display: none;
       }
+
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .bg-menu li a {
+        font-size: 1.2rem;
+        padding: 8px 20px;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-  <!-- Background -->
-  <div class="bg-container">
-    <div class="bg-panel"></div>
+  <!-- 3D Rotating Background -->
+  <div class="bg-container" id="bgContainer">
+    <div class="bg-panel" id="bgPanel" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+      <ul class="bg-menu" id="bgMenu">
+        <li style="--i: 1"><a href="#home">Home</a></li>
+        <li style="--i: 2"><a href="#about">About</a></li>
+        <li style="--i: 3"><a href="#services">Services</a></li>
+        <li style="--i: 4"><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- Header -->
   <header id="header">
     <div class="container">
       <nav>
-        <a href="#home" class="site-logo">Kuanyin Deng</a>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#home"><img src="me.png" alt="Andrew Kuanyin IT Service Solutions Logo" class="site-logo"></a>
+        <button id="menuToggle" class="btn" style="padding: 10px 20px;">
+          <i class="fas fa-bars"></i> Menu
+        </button>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>IT Service Solutions</h1>
-          <p>Reliable | Secure | Innovative</p>
-          <a href="#contact" class="btn">Get in Touch</a>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="fade-in">KD Aegis Tech Solutions</h1>
+        <p class="fade-in" style="transition-delay: 0.2s">Protecting Your Network, Powering Your Growth with Cutting-Edge Technology Solutions</p>
+        <a href="#services" class="btn fade-in" style="transition-delay: 0.4s">Explore Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="card-3d fade-in">
+        <p>Hi, I'm Kuanyin Deng, the founder of KD Aegis Tech Solutions. With a background in Cisco networking, IBM cybersecurity, and frontend development, I've dedicated my career to helping businesses thrive through secure, efficient, and innovative IT solutions. Our mission is to provide enterprise-grade network security and optimization tailored to your specific business needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-list">
+        <div class="service-item fade-in" id="network-design">
+          <h3><i class="fas fa-network-wired"></i> Network Design and Setup</h3>
+          <p>Custom network architectures tailored to your business needs, ensuring optimal performance, scalability, and reliability from the ground up.</p>
+        </div>
+        <div class="service-item fade-in" style="transition-delay: 0.2s" id="network-optimization">
+          <h3><i class="fas fa-tachometer-alt"></i> Network Optimization</h3>
+          <p>Boost performance and reduce downtime with our comprehensive network optimization services, including bandwidth management and QoS implementation.</p>
+        </div>
+        <div class="service-item fade-in" style="transition-delay: 0.4s" id="security-integration">
+          <h3><i class="fas fa-shield-alt"></i> Security Integration</h3>
+          <p>Protect your critical data with enterprise-grade security solutions including firewalls, VPNs, intrusion detection systems, and regular security audits.</p>
+        </div>
+        <div class="service-item fade-in" style="transition-delay: 0.6s" id="ongoing-support">
+          <h3><i class="fas fa-headset"></i> Ongoing Support</h3>
+          <p>24/7 monitoring and maintenance packages to keep your network running smoothly with rapid response times and proactive issue resolution.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <div>
-          <p>I'm Andrew Kuanyin, a grad Computer Science student and emerging IT professional. I provide reliable and innovative IT services, including network setup, cybersecurity solutions, and technical support for businesses and individuals. Combining academic knowledge with practical experience, my goal is to make technology accessible, secure, and efficient for everyone.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Services</h2>
-        <div class="service-list">
-          <div class="service-item">
-            <h3><i class="fas fa-network-wired"></i> Network Management</h3>
-            <p>Setting up and managing secure, scalable networks for homes and businesses.</p>
-          </div>
-          <div class="service-item">
-            <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
-            <p>Protect your data and infrastructure with expert security solutions.</p>
-          </div>
-          <div class="service-item">
-            <h3><i class="fas fa-headset"></i> Tech Support</h3>
-            <p>Quick troubleshooting, installation, and maintenance of IT systems.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <form id="contact-form" action="https://formspree.io/f/YOUR_ACTUAL_FORM_ID" method="POST">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <div class="g-recaptcha" data-sitekey="6LeK-h4rAAAAAKhKDs70yJvEVgysY4GKitKfpjK9"></div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </main>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form id="contact-form" class="card-3d fade-in">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="How can we help you?" required></textarea>
+        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/kuanyin.deng" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/andrew-kuanyin-9b5aaa1a8" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <p>&copy; 2025 Kuanyin Deng. All rights reserved.</p>
+      <p>&copy; 2025 KD Aegis Tech Solutions. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Form submission
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      
-      if (grecaptcha.getResponse()) {
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-          if (response.ok) {
-            alert('Message sent successfully!');
-            form.reset();
-            grecaptcha.reset();
-          } else {
-            throw new Error('Failed to send');
-          }
-        })
-        .catch(() => {
-          alert('Error sending message. Please try again later.');
-        });
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
       } else {
-        alert('Please complete the reCAPTCHA');
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const fadeInOnScroll = function() {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+
+        // Close menu if open
+        if (bgPanel.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Here you would typically send the data to a server
+        console.log('Form submitted:', { name, email, message });
+
+        // Show success message
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+      });
+    }
+
+    // 3D Background Menu
+    const bgPanel = document.getElementById('bgPanel');
+    const bgMenu = document.getElementById('bgMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    let menuOpen = false;
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      bgPanel.classList.toggle('active');
+
+      if (menuOpen) {
+        menuToggle.innerHTML = '<i class="fas fa-times"></i> Close';
+      } else {
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
+      }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Rotate background on mouse move
+    document.addEventListener('mousemove', (e) => {
+      if (!menuOpen) {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        bgPanel.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      }
+    });
+
+    // Reset rotation when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      if (!menuOpen) {
+        bgPanel.style.transform = 'rotateY(0deg) rotateX(0deg)';
       }
     });
   </script>
-  
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
