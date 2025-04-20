@@ -437,6 +437,23 @@
       border-top: 1px solid rgba(0, 102, 255, 0.2);
     }
 
+    .social-links {
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      color: var(--text);
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-5px);
+    }
+
     footer p {
       color: rgba(204, 214, 246, 0.7);
     }
@@ -479,7 +496,7 @@
   </style>
 </head>
 <body>
-<!-- 3D Rotating Background -->
+ <!-- 3D Rotating Background -->
 <div class="bg-container" id="bgContainer" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
   <div class="bg-panel" id="bgPanel" 
        style="background-image: url('kua.png'); 
@@ -499,12 +516,16 @@
   </div>
 </div>
 
-
   <!-- Header -->
   <header id="header">
     <div class="container">
       <nav>
-        <a href="#home"><img src="me.png" alt="Andrew Kuanyin IT Service Solutions Logo" class="site-logo"></a>
+        <a href="#home" class="site-logo">Kuanyin Deng</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
         <button id="menuToggle" class="btn" style="padding: 10px 20px;">
           <i class="fas fa-bars"></i> Menu
         </button>
@@ -516,9 +537,9 @@
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="fade-in">KD Aegis Tech Solutions</h1>
-        <p class="fade-in" style="transition-delay: 0.2s">Protecting Your Network, Powering Your Growth with Cutting-Edge Technology Solutions</p>
-        <a href="#services" class="btn fade-in" style="transition-delay: 0.4s">Explore Our Services</a>
+        <h1 class="fade-in">IT Service Solutions</h1>
+        <p class="fade-in" style="transition-delay: 0.2s">Reliable | Secure | Innovative</p>
+        <a href="#contact" class="btn fade-in" style="transition-delay: 0.4s">Get in Touch</a>
       </div>
     </div>
   </section>
@@ -526,9 +547,9 @@
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <h2>About Us</h2>
-      <div class="card-3d fade-in">
-        <p>Hi, I'm Kuanyin Deng, the founder of KD Aegis Tech Solutions. With a background in Cisco networking, IBM cybersecurity, and frontend development, I've dedicated my career to helping businesses thrive through secure, efficient, and innovative IT solutions. Our mission is to provide enterprise-grade network security and optimization tailored to your specific business needs.</p>
+      <h2>About Me</h2>
+      <div class="fade-in">
+        <p>I'm Andrew Kuanyin, a grad Computer Science student and emerging IT professional. I provide reliable and innovative IT services, including network setup, cybersecurity solutions, and technical support for businesses and individuals. Combining academic knowledge with practical experience, my goal is to make technology accessible, secure, and efficient for everyone.</p>
       </div>
     </div>
   </section>
@@ -536,45 +557,61 @@
   <!-- Services Section -->
   <section id="services" class="services">
     <div class="container">
-      <h2>Our Services</h2>
+      <h2>Services</h2>
       <div class="service-list">
-        <div class="service-item fade-in" id="network-design">
-          <h3><i class="fas fa-network-wired"></i> Network Design and Setup</h3>
-          <p>Custom network architectures tailored to your business needs, ensuring optimal performance, scalability, and reliability from the ground up.</p>
+        <div class="service-item fade-in">
+          <h3><i class="fas fa-network-wired"></i> Network Management</h3>
+          <p>Setting up and managing secure, scalable networks for homes and businesses with optimal performance and reliability.</p>
         </div>
-        <div class="service-item fade-in" style="transition-delay: 0.2s" id="network-optimization">
-          <h3><i class="fas fa-tachometer-alt"></i> Network Optimization</h3>
-          <p>Boost performance and reduce downtime with our comprehensive network optimization services, including bandwidth management and QoS implementation.</p>
+        <div class="service-item fade-in" style="transition-delay: 0.2s">
+          <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+          <p>Protect your data and infrastructure with expert security solutions, including firewalls, VPNs, and security audits.</p>
         </div>
-        <div class="service-item fade-in" style="transition-delay: 0.4s" id="security-integration">
-          <h3><i class="fas fa-shield-alt"></i> Security Integration</h3>
-          <p>Protect your critical data with enterprise-grade security solutions including firewalls, VPNs, intrusion detection systems, and regular security audits.</p>
-        </div>
-        <div class="service-item fade-in" style="transition-delay: 0.6s" id="ongoing-support">
-          <h3><i class="fas fa-headset"></i> Ongoing Support</h3>
-          <p>24/7 monitoring and maintenance packages to keep your network running smoothly with rapid response times and proactive issue resolution.</p>
+        <div class="service-item fade-in" style="transition-delay: 0.4s">
+          <h3><i class="fas fa-headset"></i> Tech Support</h3>
+          <p>Quick troubleshooting, installation, and maintenance of IT systems with rapid response times.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <form id="contact-form" class="card-3d fade-in">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="How can we help you?" required></textarea>
-        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-      </form>
-    </div>
-  </section>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <form id="contact-form" 
+          action="https://formspree.io/f/xyzwggle" 
+          method="POST"
+          class="fade-in">
+      
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="hidden" name="_subject" value="New message from kuanyindeng.github.io">
+      
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      
+      <!-- reCAPTCHA v2 -->
+      <div class="g-recaptcha" 
+           data-sitekey="6LeK-h4rAAAAAKhKDs70yJvEVgysY4GKitKfpjK9" 
+           style="margin: 20px 0;"></div>
+      
+      <button type="submit" class="btn">Send Message</button>
+      
+      <!-- Form response message -->
+      <div id="form-alert" style="display:none; margin-top:20px; padding:15px; 
+           background:rgba(0,102,255,0.1); border-radius:5px;"></div>
+    </form>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 KD Aegis Tech Solutions. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kuanyin.deng" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="www.linkedin.com/in/andrew-kuanyin-9b5aaa1a8" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p>&copy; 2025 Kuanyin Deng. All rights reserved.</p>
     </div>
   </footer>
 
@@ -627,59 +664,45 @@
     });
 
     // Form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', { name, email, message });
-
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-      });
+<!-- Form submission handler -->
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const alertBox = document.getElementById('form-alert');
+    
+    // Verify reCAPTCHA first
+    if (grecaptcha.getResponse() === '') {
+      alertBox.style.display = 'block';
+      alertBox.innerHTML = '⚠️ Please complete the reCAPTCHA';
+      return;
     }
-
-    // 3D Background Menu
-    const bgPanel = document.getElementById('bgPanel');
-    const bgMenu = document.getElementById('bgMenu');
-    const menuToggle = document.getElementById('menuToggle');
-    let menuOpen = false;
-
-    function toggleMenu() {
-      menuOpen = !menuOpen;
-      bgPanel.classList.toggle('active');
-
-      if (menuOpen) {
-        menuToggle.innerHTML = '<i class="fas fa-times"></i> Close';
+    
+    // Show loading state
+    alertBox.style.display = 'block';
+    alertBox.innerHTML = 'Sending your message...';
+    
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        alertBox.innerHTML = '✓ Thank you! Your message has been sent.';
+        form.reset();
+        grecaptcha.reset();
       } else {
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
+        throw new Error('Failed to send');
       }
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-
-    // Rotate background on mouse move
-    document.addEventListener('mousemove', (e) => {
-      if (!menuOpen) {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-        bgPanel.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-      }
+    })
+    .catch(() => {
+      alertBox.innerHTML = '⚠️ Error! Please email me directly at andrewkuanyin497@gmail.com';
     });
+  });
+</script>
 
-    // Reset rotation when mouse leaves
-    document.addEventListener('mouseleave', () => {
-      if (!menuOpen) {
-        bgPanel.style.transform = 'rotateY(0deg) rotateX(0deg)';
-      }
-    });
-  </script>
+<!-- Load reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
