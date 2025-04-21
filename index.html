@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrew Kuanyin IT Service Solutions | Secure Network Solutions</title>
+  <title>KD Aegis Tech Solutions | Secure Network Solutions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -15,13 +15,13 @@
       --accent: #00ffb3;
       --text: #ccd6f6;
     }
-
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: var(--dark);
@@ -29,14 +29,14 @@
       overflow-x: hidden;
       perspective: 1000px;
     }
-
+    
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
+    
     /* Header Styles */
     header {
       position: fixed;
@@ -50,34 +50,34 @@
       transition: all 0.3s ease;
       transform-style: preserve-3d;
     }
-
+    
     header.scrolled {
       padding: 15px 0;
       box-shadow: 0 5px 20px rgba(0, 102, 255, 0.2);
     }
-
+    
     .site-logo {
       height: 50px;
       transition: all 0.3s ease;
       filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
     }
-
+    
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
+    
     nav ul {
       display: flex;
       list-style: none;
     }
-
+    
     nav ul li {
       margin-left: 30px;
       position: relative;
     }
-
+    
     nav ul li a {
       color: var(--text);
       text-decoration: none;
@@ -86,7 +86,7 @@
       transition: all 0.3s ease;
       position: relative;
     }
-
+    
     nav ul li a::after {
       content: '';
       position: absolute;
@@ -97,15 +97,15 @@
       left: 0;
       transition: width 0.3s ease;
     }
-
+    
     nav ul li a:hover::after {
       width: 100%;
     }
-
+    
     nav ul li a:hover {
       color: var(--secondary);
     }
-
+    
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -122,22 +122,22 @@
       transition: all 0.3s ease;
       z-index: 100;
     }
-
+    
     .dropdown:hover .dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateY(0) rotateX(0);
     }
-
+    
     .dropdown-menu li {
       margin: 0;
       padding: 8px 20px;
     }
-
+    
     .dropdown-menu li a {
       font-size: 14px;
     }
-
+    
     /* 3D Rotating Background */
     .bg-container {
       position: fixed;
@@ -149,7 +149,7 @@
       transform-style: preserve-3d;
       transition: transform 1.5s ease-out;
     }
-
+    
     .bg-panel {
       position: absolute;
       width: 100%;
@@ -164,7 +164,7 @@
       align-items: center;
       padding-bottom: 150px;
     }
-
+    
     .bg-panel::before {
       content: '';
       position: absolute;
@@ -174,21 +174,21 @@
       height: 100%;
       background: rgba(10, 25, 47, 0.7);
     }
-
+    
     .bg-menu {
       list-style: none;
       transform: translateY(100%);
       transition: transform 0.8s ease-out;
       text-align: center;
     }
-
+    
     .bg-menu li {
       margin: 20px 0;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.5s ease;
     }
-
+    
     .bg-menu li a {
       color: white;
       font-size: 1.5rem;
@@ -200,26 +200,26 @@
       transition: all 0.3s ease;
       display: inline-block;
     }
-
+    
     .bg-menu li a:hover {
       background: rgba(0, 102, 255, 0.6);
       transform: scale(1.05);
     }
-
+    
     .bg-panel.active {
       transform: rotateX(75deg) translateY(30%);
     }
-
+    
     .bg-panel.active .bg-menu {
       transform: translateY(0);
     }
-
+    
     .bg-panel.active .bg-menu li {
       opacity: 1;
       transform: translateY(0);
       transition-delay: calc(0.1s * var(--i));
     }
-
+    
     /* Hero Section */
     .hero {
       height: 100vh;
@@ -228,12 +228,12 @@
       position: relative;
       overflow: hidden;
     }
-
+    
     .hero-content {
       max-width: 700px;
       transform: translateZ(50px);
     }
-
+    
     .hero h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3.5rem;
@@ -246,14 +246,14 @@
       text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
       transform: translateZ(30px);
     }
-
+    
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
       line-height: 1.6;
       transform: translateZ(20px);
     }
-
+    
     .btn {
       display: inline-block;
       padding: 12px 30px;
@@ -270,12 +270,12 @@
       position: relative;
       overflow: hidden;
     }
-
+    
     .btn:hover {
       transform: translateY(-5px) translateZ(20px);
       box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
     }
-
+    
     .btn::before {
       content: '';
       position: absolute;
@@ -286,18 +286,18 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: all 0.5s ease;
     }
-
+    
     .btn:hover::before {
       left: 100%;
     }
-
+    
     /* Section Styles */
     section {
       padding: 100px 0;
       position: relative;
       transform-style: preserve-3d;
     }
-
+    
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.5rem;
@@ -308,7 +308,7 @@
       left: 50%;
       transform: translateX(-50%);
     }
-
+    
     section h2::after {
       content: '';
       position: absolute;
@@ -319,12 +319,12 @@
       left: 25%;
       border-radius: 3px;
     }
-
+    
     /* About Section */
     .about {
       background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
     }
-
+    
     .about p {
       max-width: 800px;
       margin: 0 auto;
@@ -332,19 +332,19 @@
       line-height: 1.8;
       text-align: center;
     }
-
+    
     /* Services Section */
     .services {
       background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 102, 255, 0.1));
     }
-
+    
     .service-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
       margin-top: 50px;
     }
-
+    
     .service-item {
       background: rgba(10, 25, 47, 0.7);
       border-radius: 10px;
@@ -356,7 +356,7 @@
       position: relative;
       overflow: hidden;
     }
-
+    
     .service-item::before {
       content: '';
       position: absolute;
@@ -368,34 +368,34 @@
       transform: translateX(-100%);
       transition: transform 0.6s ease;
     }
-
+    
     .service-item:hover {
       transform: translateY(-10px) rotateY(5deg);
       box-shadow: 0 15px 40px rgba(0, 102, 255, 0.3);
       border-color: rgba(0, 212, 255, 0.4);
     }
-
+    
     .service-item:hover::before {
       transform: translateX(100%);
     }
-
+    
     .service-item h3 {
       font-family: 'Orbitron', sans-serif;
       color: var(--secondary);
       margin-bottom: 15px;
       font-size: 1.3rem;
     }
-
+    
     .service-item p {
       line-height: 1.6;
       color: rgba(204, 214, 246, 0.8);
     }
-
+    
     /* Contact Section */
     .contact {
       background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
     }
-
+    
     #contact-form {
       max-width: 600px;
       margin: 0 auto;
@@ -403,7 +403,7 @@
       gap: 20px;
       transform-style: preserve-3d;
     }
-
+    
     #contact-form input,
     #contact-form textarea {
       width: 100%;
@@ -415,7 +415,7 @@
       font-family: 'Montserrat', sans-serif;
       transition: all 0.3s ease;
     }
-
+    
     #contact-form input:focus,
     #contact-form textarea:focus {
       outline: none;
@@ -423,12 +423,12 @@
       box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
       transform: translateZ(10px);
     }
-
+    
     #contact-form textarea {
       min-height: 150px;
       resize: vertical;
     }
-
+    
     /* Footer */
     footer {
       background: rgba(10, 25, 47, 0.95);
@@ -436,42 +436,42 @@
       text-align: center;
       border-top: 1px solid rgba(0, 102, 255, 0.2);
     }
-
+    
     footer p {
       color: rgba(204, 214, 246, 0.7);
     }
-
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
       }
-
+      
       nav ul {
         display: none;
       }
-
+      
       .service-list {
         grid-template-columns: 1fr;
       }
-
+      
       section {
         padding: 70px 0;
       }
-
+      
       .bg-menu li a {
         font-size: 1.2rem;
         padding: 8px 20px;
       }
     }
-
+    
     /* Animation Classes */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.6s ease;
     }
-
+    
     .fade-in.active {
       opacity: 1;
       transform: translateY(0);
@@ -495,7 +495,7 @@
   <header id="header">
     <div class="container">
       <nav>
-        <a href="#home"><img src="me.png" alt="Andrew Kuanyin IT Service Solutions Logo" class="site-logo"></a>
+        <a href="#home"><img src="./icon.png" alt="KD Aegis Tech Solutions Logo" class="site-logo"></a>
         <button id="menuToggle" class="btn" style="padding: 10px 20px;">
           <i class="fas fa-bars"></i> Menu
         </button>
@@ -579,83 +579,83 @@
         header.classList.remove('scrolled');
       }
     });
-
+    
     // Scroll animations
     const fadeElements = document.querySelectorAll('.fade-in');
-
+    
     const fadeInOnScroll = function() {
       fadeElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-
+        
         if (elementTop < windowHeight - 100) {
           element.classList.add('active');
         }
       });
     };
-
+    
     window.addEventListener('scroll', fadeInOnScroll);
     window.addEventListener('load', fadeInOnScroll);
-
+    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-
+        
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-
+        
         window.scrollTo({
           top: targetElement.offsetTop - 80,
           behavior: 'smooth'
         });
-
+        
         // Close menu if open
         if (bgPanel.classList.contains('active')) {
           toggleMenu();
         }
       });
     });
-
+    
     // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
+        
         // Get form values
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
-
+        
         // Here you would typically send the data to a server
         console.log('Form submitted:', { name, email, message });
-
+        
         // Show success message
         alert('Thank you for your message! We will get back to you soon.');
         contactForm.reset();
       });
     }
-
+    
     // 3D Background Menu
     const bgPanel = document.getElementById('bgPanel');
     const bgMenu = document.getElementById('bgMenu');
     const menuToggle = document.getElementById('menuToggle');
     let menuOpen = false;
-
+    
     function toggleMenu() {
       menuOpen = !menuOpen;
       bgPanel.classList.toggle('active');
-
+      
       if (menuOpen) {
         menuToggle.innerHTML = '<i class="fas fa-times"></i> Close';
       } else {
         menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
       }
     }
-
+    
     menuToggle.addEventListener('click', toggleMenu);
-
+    
     // Rotate background on mouse move
     document.addEventListener('mousemove', (e) => {
       if (!menuOpen) {
@@ -664,7 +664,7 @@
         bgPanel.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
       }
     });
-
+    
     // Reset rotation when mouse leaves
     document.addEventListener('mouseleave', () => {
       if (!menuOpen) {
