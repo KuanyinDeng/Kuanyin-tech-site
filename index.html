@@ -139,16 +139,18 @@
     }
     
     .bg-panel {
-      width: 100%;
-      height: 100%;
-      background-image: url('kua.png');
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-      position: relative;
-      transform-style: preserve-3d;
-    }
+  width: 100%;
+  height: 300px;
+  background-image: url('kua.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
     
     .bg-panel::before {
       content: '';
