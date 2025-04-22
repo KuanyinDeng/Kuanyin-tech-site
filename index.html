@@ -199,24 +199,45 @@
       background: rgba(255, 255, 255, 0.8);
       color: black;
     }
-    /* 3D Rotation Animation */
-    @keyframes rotate {
-      0% { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
-    }
-    .bg-panel.active {
-      transform: rotateX(75deg) translateY(30%);
-    }
-    
-    .bg-panel.active .bg-menu {
-      transform: translateY(0);
-    }
-    
-    .bg-panel.active .bg-menu li {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: calc(0.1s * var(--i));
-    }
+   .bg-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-panel {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.bg-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.bg-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
     
     /* Hero Section */
     .hero {
@@ -226,6 +247,47 @@
       position: relative;
       overflow: hidden;
     }
+
+    .terminal {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 30px;
+  font-family: 'Courier New', monospace;
+}
+
+.terminal-header {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-header span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red-btn { background: #ff5f56; }
+.yellow-btn { background: #ffbd2e; }
+.green-btn { background: #27c93f; }
+
+.terminal-body {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
     
     .hero-content {
       max-width: 700px;
@@ -288,6 +350,40 @@
     .btn:hover::before {
       left: 100%;
     }
+
+    .projects {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: rgba(10, 25, 47, 0.7);
+  border-radius: 10px;
+  padding: 30px;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--secondary);
+}
+
+.project-icon {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-bottom: 15px;
+}
+
+.btn-small {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
     
     /* Section Styles */
     section {
@@ -428,16 +524,15 @@
     }
     
     /* Footer */
-    footer {
-      background: rgba(10, 25, 47, 0.95);
-      padding: 30px 0;
-      text-align: center;
-      border-top: 1px solid rgba(0, 102, 255, 0.2);
-    }
-    
-    footer p {
-      color: rgba(204, 214, 246, 0.7);
-    }
+   .security-badge {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--secondary);
+  padding: 10px 15px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
     
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -477,17 +572,18 @@
   </style>
 </head>
 <body>
-  <!-- 3D Rotating Background -->
-  <div class="bg-container" id="bgContainer">
-    <div class="bg-panel" id="bgPanel" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
-      <ul class="bg-menu" id="bgMenu">
-        <li style="--i: 1"><a href="#home">Home</a></li>
-        <li style="--i: 2"><a href="#about">About</a></li>
-        <li style="--i: 3"><a href="#services">Services</a></li>
-        <li style="--i: 4"><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+ <!-- Static Background Menu -->
+<div class="bg-container" id="bgContainer">
+  <div class="bg-panel" id="bgPanel" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+    <ul class="bg-menu" id="bgMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
+</div>
+
 
   <!-- Header -->
   <header id="header">
@@ -505,22 +601,102 @@
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="fade-in">KD Aegis Tech Solutions</h1>
+<h1>Kuanyin Deng</h1>
+<p class="subtitle">IT & Cybersecurity Student</p>
+<p>Building secure digital futures through cutting-edge network solutions and cybersecurity expertise</p>        
         <p class="fade-in" style="transition-delay: 0.2s">Protecting Your Network, Powering Your Growth with Cutting-Edge Technology Solutions</p>
         <a href="#services" class="btn fade-in" style="transition-delay: 0.4s">Explore Our Services</a>
       </div>
     </div>
   </section>
 
+  <div class="terminal">
+  <div class="terminal-header">
+    <span class="red-btn"></span>
+    <span class="yellow-btn"></span>
+    <span class="green-btn"></span>
+  </div>
+  <div class="terminal-body">
+    <p>> Welcome to KD Aegis Tech Solutions</p>
+    <p>> Initializing security protocols...</p>
+    <p>> <span class="typed-text"></span><span class="cursor">|</span></p>
+  </div>
+</div>
+
+  <section id="projects" class="projects">
+  <div class="container">
+    <h2>My Projects & Labs</h2>
+    <div class="project-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-shield-virus"></i>
+        </div>
+        <h3>Network Vulnerability Scanner</h3>
+        <p>Python-based tool to detect open ports and vulnerabilities in local networks.</p>
+        <a href="#" class="btn-small">View Code <i class="fab fa-github"></i></a>
+      </div>
+      
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-route"></i>
+        </div>
+        <h3>Packet Tracer Enterprise Network</h3>
+        <p>Designed a scalable corporate network with VLANS, firewalls, and QoS.</p>
+        <a href="#" class="btn-small">View Diagrams</a>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
       <h2>About Us</h2>
       <div class="card-3d fade-in">
-        <p>Hi, I'm Kuanyin Deng, the founder of KD Aegis Tech Solutions. With a background in Cisco networking, IBM cybersecurity, and frontend development, I've dedicated my career to helping businesses thrive through secure, efficient, and innovative IT solutions. Our mission is to provide enterprise-grade network security and optimization tailored to your specific business needs.</p>
+<p>I'm Kuanyin Deng, an IT and Cybersecurity student passionate about network security and optimisation. 
+Through KD Aegis Tech Solutions, I combine academic knowledge with hands-on experience to deliver 
+enterprise-grade solutions. Currently, I specialise in Cisco networking and IBM cybersecurity frameworks.</p>
+<div class="education">
+  <h4>Currently Studying:</h4>
+  <ul>
+    <li><i class="fas fa-graduation-cap"></i> Advanced Network Security</li>
+    <li><i class="fas fa-graduation-cap"></i> Ethical Hacking Certifications</li>
+    <li><i class="fas fa-graduation-cap"></i> HCCDA–Cloud Native certificate</li>
+
+  </ul>
+</div>   
       </div>
     </div>
   </section>
+
+  <section id="skills" class="skills">
+  <div class="container">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      <!-- Networking -->
+      <div class="skill-category">
+        <h3><i class="fas fa-network-wired"></i> Networking</h3>
+        <ul>
+          <li>Cisco CCNA</li>
+          <li>TCP/IP, VLANs, VPNs</li>
+          <li>Wireshark Analysis</li>
+        </ul>
+      </div>
+      
+      <!-- Cybersecurity -->
+      <div class="skill-category">
+        <h3><i class="fas fa-lock"></i> Cybersecurity</h3>
+        <ul>
+          <li>Kali Linux</li>
+          <li>Metasploit Framework</li>
+          <li>OWASP Top 10</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Services Section -->
   <section id="services" class="services">
@@ -533,11 +709,11 @@
         </div>
         <div class="service-item fade-in" style="transition-delay: 0.2s" id="network-optimization">
           <h3><i class="fas fa-tachometer-alt"></i> Network Optimization</h3>
-          <p>Boost performance and reduce downtime with our comprehensive network optimization services, including bandwidth management and QoS implementation.</p>
+          <p>Boost performance and reduce downtime with our comprehensive network optimisation services, including bandwidth management and QoS implementation.</p>
         </div>
         <div class="service-item fade-in" style="transition-delay: 0.4s" id="security-integration">
           <h3><i class="fas fa-shield-alt"></i> Security Integration</h3>
-          <p>Protect your critical data with enterprise-grade security solutions including firewalls, VPNs, intrusion detection systems, and regular security audits.</p>
+          <p>Protect your critical data with enterprise-grade security solutions, including firewalls, VPNs, intrusion detection systems, and regular security audits.</p>
         </div>
         <div class="service-item fade-in" style="transition-delay: 0.6s" id="ongoing-support">
           <h3><i class="fas fa-headset"></i> Ongoing Support</h3>
@@ -561,11 +737,14 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 KD Aegis Tech Solutions. All rights reserved.</p>
+<footer>
+  <div class="container">
+    <div class="security-badge">
+      <i class="fas fa-shield-alt"></i> This site is protected against XSS and SQLi
     </div>
-  </footer>
+    <p>&copy; 2025 KD Aegis Tech Solutions. All rights reserved.</p>
+  </div>
+</footer>
 
   <script>
     // Header scroll effect
@@ -662,6 +841,37 @@
         bgPanel.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
       }
     });
+    // Typing effect
+const typedText = document.querySelector('.typed-text');
+const textArray = ['Firewall configured', 'Network secured', 'Systems monitored'];
+let textIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textIndex].length) {
+    typedText.textContent += textArray[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 100);
+  } else {
+    setTimeout(erase, 2000);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typedText.textContent = textArray[textIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, 50);
+  } else {
+    textIndex = (textIndex + 1) % textArray.length;
+    setTimeout(type, 500);
+  }
+}
+
+// Start animation on load
+window.addEventListener('load', () => {
+  setTimeout(type, 1000);
+});
     
     // Reset rotation when mouse leaves
     document.addEventListener('mouseleave', () => {
