@@ -138,17 +138,16 @@
       font-size: 14px;
     }
     
-    .bg-panel {
+   .bg-panel {
   width: 100%;
-  height: 100px;
-  background-image: url('kua.png');
+  height: 100%;
+  background-image: url('kua.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  backface-visibility: hidden;       
 }
+
 
     
     .bg-panel::before {
@@ -194,11 +193,13 @@
       background: rgba(255, 255, 255, 0.8);
       color: black;
     }
-   .bg-container {
-  width: 100%;
-  height: 300vh;
-  overflow: hidden;
+.bg-container {
+  width: 100vw;               
+  height: 100vh;
   position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 20s infinite linear;
+  overflow: hidden;          
 }
 
 .bg-menu li a {
@@ -262,8 +263,12 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
     
     .hero-content {
