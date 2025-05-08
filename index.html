@@ -1129,39 +1129,73 @@
   </header>
 
   <!-- Enhanced Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="fade-in">Kuanyin Deng</h1>
-        <p class="subtitle fade-in" style="transition-delay: 0.1s">IT & Cybersecurity Specialist</p>
-        <p class="fade-in" style="transition-delay: 0.2s">Building secure digital futures through cutting-edge network solutions and cybersecurity expertise</p>
+<section id="home" class="hero" aria-label="Introduction">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="fade-in" data-aos="fade-up">Kuanyin Deng</h1>
+      <p class="subtitle fade-in" data-aos="fade-up" data-aos-delay="100">IT & Cybersecurity Specialist</p>
+      <p class="hero-description fade-in" data-aos="fade-up" data-aos-delay="200">
+        Building secure digital futures through cutting-edge network solutions and cybersecurity expertise
+      </p>
 
-        <div class="btn-group fade-in" style="transition-delay: 0.4s; display: flex; gap: 15px; margin-top: 30px;">
-          <a href="#services" class="btn">Explore Services</a>
-          <a href="#projects" class="btn btn-outline">View Projects</a>
-        </div>
-
-        <div class="terminal fade-in" style="transition-delay: 0.6s">
-          <div class="terminal-header">
-            <span class="red-btn"></span>
-            <span class="yellow-btn"></span>
-            <span class="green-btn"></span>
-          </div>
-          <div class="terminal-body">
-            <p>> Welcome to KD Aegis Tech Solutions</p>
-            <p>> Initializing security protocols...</p>
-            <p>> <span class="typed-text"></span><span class="cursor">|</span></p>
-          </div>
-        </div>
+      <div class="btn-group fade-in" data-aos="fade-up" data-aos-delay="400">
+        <a href="#services" class="btn btn-primary" aria-label="Explore services">
+          <span>Explore Services</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#projects" class="btn btn-secondary" aria-label="View projects">
+          <span>View Projects</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </a>
       </div>
 
-      <!-- Enhanced Hero Image -->
-      <div class="hero-image-container">
-        <img src="de.jpg" alt="Kuanyin Deng - Cybersecurity Specialist" class="hero-image">
+      <div class="terminal fade-in" data-aos="fade-up" data-aos-delay="600">
+        <div class="terminal-header">
+          <span class="terminal-btn red" aria-hidden="true"></span>
+          <span class="terminal-btn yellow" aria-hidden="true"></span>
+          <span class="terminal-btn green" aria-hidden="true"></span>
+          <span class="terminal-title">kd-aegis-terminal</span>
+        </div>
+        <div class="terminal-body" role="document">
+          <p><span class="terminal-prompt">></span> Welcome to KD Aegis Tech Solutions</p>
+          <p><span class="terminal-prompt">></span> Initializing security protocols...</p>
+          <p><span class="terminal-prompt">></span> <span class="typed-text" aria-live="polite"></span><span class="cursor" aria-hidden="true">|</span></p>
+        </div>
       </div>
     </div>
-  </section>
 
+    <!-- Enhanced Hero Image with decorative elements -->
+    <div class="hero-image-container" data-aos="fade-left">
+      <div class="hero-image-wrapper">
+        <img 
+          src="de.jpg" 
+          alt="Kuanyin Deng, IT and Cybersecurity Specialist" 
+          class="hero-image"
+          width="500"
+          height="600"
+          loading="eager"
+        >
+        <div class="hero-image-decoration" aria-hidden="true">
+          <div class="decoration-circle"></div>
+          <div class="decoration-shield"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrolling indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <svg width="30" height="50" viewBox="0 0 30 50">
+      <rect x="12" y="0" width="6" height="20" rx="3" fill="currentColor" opacity="0.6">
+        <animate attributeName="y" values="0;15;0" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+</section>
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
