@@ -1558,91 +1558,80 @@
       });
     });
 
-   // Update your existing form submission code
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
+// In your main JavaScript file
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalText = submitButton.innerHTML;
 
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.innerHTML;
-    
-    // Show loading state
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
+  // Show loading state
+  submitButton.disabled = true;
+  submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-    try {
-      const formData = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        message: document.getElementById('message').value.trim()
-      };
+  try {
+    const formData = {
+      name: form.querySelector('#name').value.trim(),
+      email: form.querySelector('#email').value.trim(),
+      message: form.querySelector('#message').value.trim()
+    };
 
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+    const response = await fetch('/api/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to send message');
-      }
-
-      // Show success message
-      showNotification(data.message, false);
-      contactForm.reset();
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      showNotification(error.message || 'Failed to send message. Please try again later.', true);
-    } finally {
-      // Reset button
-      submitButton.innerHTML = originalButtonText;
-      submitButton.disabled = false;
+    // First check if the response is JSON
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      throw new Error(text || 'Invalid server response');
     }
-  });
-}
 
-// Notification function (add this if you don't have it)
-function showNotification(message, isError = false) {
-  // Create notification element if it doesn't exist
-  let notification = document.getElementById('notification');
-  if (!notification) {
-    notification = document.createElement('div');
-    notification.id = 'notification';
-    notification.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 15px 25px;
-      border-radius: 5px;
-      background: ${isError ? '#ff4444' : '#0066ff'};
-      color: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    `;
-    document.body.appendChild(notification);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Submission failed');
+    }
+
+    // Success case
+    showNotification(data.message || 'Message sent successfully!', false);
+    form.reset();
+
+  } catch (error) {
+    console.error('Submission error:', error);
+    showNotification(
+      error.message || 'Failed to send message. Please try again later.', 
+      true
+    );
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalText;
   }
+});
 
+// Improved notification function
+function showNotification(message, isError) {
+  // Remove existing notifications
+  document.querySelectorAll('.custom-notification').forEach(el => el.remove());
+
+  const notification = document.createElement('div');
+  notification.className = 'custom-notification';
   notification.textContent = message;
-  notification.style.background = isError ? '#ff4444' : '#0066ff';
-  notification.style.transform = 'translateY(0)';
-  notification.style.opacity = '1';
   
+  document.body.appendChild(notification);
+  
+  // Auto-remove after 5 seconds
   setTimeout(() => {
-    notification.style.transform = 'translateY(100px)';
-    notification.style.opacity = '0';
+    notification.style.animation = 'fadeOut 0.3s ease-out';
+    setTimeout(() => notification.remove(), 300);
   }, 5000);
 }
 
-    // Particle background
+document.head.appendChild(style);    // Particle background
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
       const particleCount = Math.floor(window.innerWidth / 10);
