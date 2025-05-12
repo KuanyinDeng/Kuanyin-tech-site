@@ -1457,7 +1457,7 @@
       <form id="contact-form" class="fade-in">
         <input type="text" id="name" placeholder="Your Name" required class="fade-in">
         <input type="email" id="email" placeholder="Your Email" required class="fade-in" style="transition-delay: 0.1s">
-        <textarea id="message" placeholder="How can I help you?" required class="fade-in" style="transition-delay: 0.2s"></textarea>
+        <textarea id="message" name="message" required></textarea>
         <button type="submit" class="btn fade-in" style="transition-delay: 0.3s">Send Message <i class="fas fa-paper-plane"></i></button>
       </form>
     </div>
@@ -1558,31 +1558,25 @@
       });
     });
 
-// In your main JavaScript file
-document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const form = e.target;
-  const submitButton = form.querySelector('button[type="submit"]');
-  const originalText = submitButton.innerHTML;
+  
+  const formData = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    message: document.getElementById('message').value.trim() // Verify this line
+  };
 
-  // Show loading state
-  submitButton.disabled = true;
-  submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  // Debug: log before sending
+  console.log('Submitting:', formData);
 
-  try {
-    const formData = {
-      name: form.querySelector('#name').value.trim(),
-      email: form.querySelector('#email').value.trim(),
-      message: form.querySelector('#message').value.trim()
-    };
-
-    const response = await fetch('/api/submit-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
+  const response = await fetch('/api/submit-form', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
+  });
 
     // First check if the response is JSON
     const contentType = response.headers.get('content-type');
