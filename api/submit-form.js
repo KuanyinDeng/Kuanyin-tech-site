@@ -29,18 +29,24 @@ const mailOptions = {
   `
 };
 
-await transporter.sendMail(mailOptions);
-// api/submit-form.js
-export default async function handler(req, res) {
-  // Set proper headers first
-  res.setHeader('Content-Type', 'application/json');
-  
-  try {
-    if (req.method !== 'POST') {
-      return res.status(405).json({ 
-        error: 'Method not allowed',
-        message: 'Only POST requests are accepted'
-      });
+await transporter.sendMail({
+  // ... other fields
+  text: `
+    New message from your website:
+    Name: ${name}
+    Email: ${email}
+    Message: 
+    ${message}
+  `,
+  html: `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
+    <p><strong>Message:</strong></p>
+    <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; white-space: pre-line">
+      ${message}
+    </div>
+  `
+});
     }
 
     const { name, email, message } = req.body;
