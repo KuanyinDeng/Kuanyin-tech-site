@@ -1,3 +1,35 @@
+// Add at the top of submit-form.js
+import nodemailer from 'nodemailer';
+
+// Configure transporter (using Gmail as example)
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+// Inside your handler function, after validation:
+const mailOptions = {
+  from: process.env.EMAIL_USER,
+  to: process.env.YOUR_PERSONAL_EMAIL,
+  subject: `New message from ${name}`,
+  text: `
+    Name: ${name}
+    Email: ${email}
+    Message: ${message}
+  `,
+  html: `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Message:</strong></p>
+    <p>${message.replace(/\n/g, '<br>')}</p>
+  `
+};
+
+await transporter.sendMail(mailOptions);
 // api/submit-form.js
 export default async function handler(req, res) {
   // Set proper headers first
