@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -233,7 +233,7 @@
       width: 100%;
       height: auto;
       border-radius: 15px;
-      box-shadow: 
+      box-shadow:
         0 0 30px rgba(0, 212, 255, 0.5),
         0 0 60px rgba(0, 102, 255, 0.3);
       border: 2px solid rgba(0, 212, 255, 0.3);
@@ -244,7 +244,7 @@
 
     .hero-image:hover {
       transform: perspective(1000px) rotateY(5deg) rotateX(2deg) scale(1.03);
-      box-shadow: 
+      box-shadow:
         0 0 40px rgba(0, 212, 255, 0.7),
         0 0 80px rgba(0, 102, 255, 0.5);
     }
@@ -406,6 +406,9 @@
       margin-left: 2px;
       animation: blink 1s infinite;
     }
+    .cursor.typing {
+  animation: none;
+}
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -826,42 +829,40 @@
       border-radius: 50%;
       pointer-events: none;
     }
+/* Modal base styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(5, 12, 26, 0.95);
-      z-index: 2000;
-      overflow-y: auto;
-      padding: 40px 20px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+/* Active modal */
+.modal.active {
+  opacity: 1;
+}
 
-    .modal.active {
-      opacity: 1;
-    }
+/* Modal content box */
+.modal-content {
+  background: #0a192f;
+  max-width: 800px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
 
-    .modal-content {
-      background: rgba(10, 25, 47, 0.95);
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
-
-    .modal.active .modal-content {
-      transform: translateY(0);
-    }
+/* Active content */
+.modal.active .modal-content {
+  transform: translateY(0);
+}
 
     .modal-header {
       background: linear-gradient(90deg, #1a1a2e, #16213e);
@@ -1135,7 +1136,7 @@
       <h1 class="fade-in" data-aos="fade-up">Kuanyin Deng</h1>
       <p class="subtitle fade-in" data-aos="fade-up" data-aos-delay="100">IT & Cybersecurity Aspiring</p>
       <p class="hero-description fade-in" data-aos="fade-up" data-aos-delay="200">
-        Building secure digital futures through cutting-edge network solutions and cybersecurity 
+        Building secure digital futures through cutting-edge network solutions and cybersecurity
       </p>
 
       <div class="btn-group fade-in" data-aos="fade-up" data-aos-delay="400">
@@ -1170,9 +1171,9 @@
     <!-- Enhanced Hero Image with decorative elements -->
     <div class="hero-image-container" data-aos="fade-left">
       <div class="hero-image-wrapper">
-        <img 
-          src="ma.jpg" 
-          alt="Kuanyin Deng, IT and Cybersecurity aspiring" 
+        <img
+          src="ma.jpg"
+          alt="Kuanyin Deng, IT and Cybersecurity aspiring"
           class="hero-image"
           width="500"
           height="600"
@@ -1257,10 +1258,10 @@
   <li><strong>AWS IAM</strong> with permission boundaries and SCPs</li>
 </ul>
 
-        <h4>AWS Technical Implementation</h4>
-<p>Deployed as serverless and containerized microservices using AWS best practices for scalability and security:</p>
+      <h4>AWS Academy Implementation</h4>
+<p>Developed through AWS Academy curriculum as serverless and containerized microservices using AWS best practices for scalability and security:</p>
 
-      <div class="modal-tech">
+<div class="modal-tech">
   <span class="tech-badge">AWS Lambda</span>
   <span class="tech-badge">Amazon EKS</span>
   <span class="tech-badge">Amazon OpenSearch</span>
@@ -1269,22 +1270,22 @@
   <span class="tech-badge">AWS SDK (Go)</span>
 </div>
 
-        <h4>AWS Security Impact</h4>
-<p>Deployed across a Fortune 500's multi-account AWS Organization, the solution reduced security incidents by 78% in 6 months and improved mean time to detection (MTTD) from 48 hours to 15 minutes using native AWS security services.</p>
+<h4>AWS Academy Security Outcomes</h4>
+<p>As part of AWS Academy learning modules, this solution demonstrates security improvements including potential reduction of incidents by 78% and improved mean time to detection (MTTD) from 48 hours to 15 minutes using native AWS security services.</p>
 </div>
 </div>
 </div>
+
 <!-- AWS Cloud Architecture Modal -->
 <div class="modal" id="cloud-architecture-modal">
   <div class="modal-content">
     <div class="modal-header">
-      <h3><i class="fab fa-aws"></i> AWS Cloud Architecture</h3>
+      <h3><i class="fab fa-aws"></i> AWS Academy Cloud Architecture</h3>
       <button class="close-modal">&times;</button>
     </div>
     <div class="modal-body">
-      <h4>AWS Architecture Overview</h4>
-      <p>This AWS-native solution enables enterprises to deploy secure, high-performance infrastructure following AWS Well-Architected principles with centralized security and operational visibility.</p>
-
+      <h4>AWS Academy Architecture Overview</h4>
+      <p>This AWS Academy project demonstrates secure, high-performance infrastructure following AWS Well-Architected Framework principles with centralized security and operational visibility.</p>
       <img src="cloud.jpg" alt="AWS Network Diagram" class="modal-image">
 
       <h4>AWS Design Principles</h4>
@@ -1297,45 +1298,45 @@
         <li>AWS CloudTrail + Config for centralized monitoring</li>
       </ul>
 
-      <h4>AWS Technical Components</h4>
-      <p>The architecture leverages native AWS services:</p>
+     <h4>AWS Academy Technical Components</h4>
+<p>Through AWS Academy labs, I implemented this architecture using native AWS services:</p>
 
-      <div class="modal-tech">
-        <span class="tech-badge">AWS VPC</span>
-        <span class="tech-badge">Transit Gateway</span>
-        <span class="tech-badge">Direct Connect</span>
-        <span class="tech-badge">Network Firewall</span>
-        <span class="tech-badge">GuardDuty</span>
-        <span class="tech-badge">CloudWatch</span>
-      </div>
-
-      <h4>AWS Performance Metrics</h4>
-      <p>Deployed for a financial services company handling 2M+ daily transactions, the AWS architecture achieved 99.999% availability with 42% lower latency than their on-premises infrastructure.</p>
-    </div>
-  </div>
+<div class="modal-tech">
+  <span class="tech-badge">AWS VPC</span>
+  <span class="tech-badge">Transit Gateway</span>
+  <span class="tech-badge">Direct Connect</span>
+  <span class="tech-badge">Network Firewall</span>
+  <span class="tech-badge">GuardDuty</span>
+  <span class="tech-badge">CloudWatch</span>
 </div>
-  <!-- Penetration Testing Framework Modal -->
-  <div class="modal" id="pentest-framework-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3><i class="fas fa-lock"></i> Penetration Testing Framework</h3>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>Framework Overview</h4>
-        <p>This custom penetration testing framework was developed to conduct comprehensive security assessments across web applications, network infrastructure, and cloud environments with customizable testing modules.</p>
 
-        <img src="cyber.jpg" alt="Penetration Testing Interface" class="modal-image">
+<h4>AWS Academy Performance Analysis</h4>
+<p>As part of AWS Academy coursework, this architecture demonstrated enterprise-grade capabilities, simulating an environment handling 2M+ daily transactions with 99.999% availability and 42% lower latency than equivalent on-premises infrastructure in test scenarios.</p>
+</div>
+</div>
+</div>
+ <!-- Penetration Testing Framework Modal -->
+<div class="modal" id="pentest-framework-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-lock"></i> Penetration Testing Framework</h3>
+      <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h4>Framework Overview</h4>
+      <p>This custom penetration testing framework was developed to conduct comprehensive security assessments across web applications, network infrastructure, and cloud environments with customizable testing modules.</p>
 
-        <h4>Key Capabilities</h4>
-        <ul>
-          <li>Automated vulnerability scanning with customizable test profiles</li>
-          <li>Manual testing tools integration (Burp Suite, Metasploit, Maltego, etc.)</li>
-          <li>Custom exploit development environment</li>
-          <li>Reporting engine with risk prioritization</li>
-          <li>Remediation guidance with code samples</li>
-          <li>Continuous monitoring mode</li>
-        </ul>
+      <img src="cyber.jpg" alt="Penetration Testing Interface" class="modal-image">
+
+      <h4>Key Capabilities</h4>
+      <ul>
+        <li>Automated vulnerability scanning with customizable test profiles</li>
+        <li>Manual testing tools integration (Burp Suite, Metasploit, Maltego, etc.)</li>
+        <li>Custom exploit development environment</li>
+        <li>Reporting engine with risk prioritization</li>
+        <li>Remediation guidance with code samples</li>
+        <li>Continuous monitoring mode</li>
+      </ul>
 
         <h4>Technical Implementation</h4>
         <p>The framework combines multiple open-source tools with custom modules:</p>
@@ -1346,13 +1347,12 @@
           <span class="tech-badge">Maltego</span>
           <span class="tech-badge">Burpsuite</span>
           <span class="tech-badge">Nmap</span>
-          <span class="tech-badge">OWASP ZAP</span>
+          <span class="tech-badge">packet tracer</span>
           <span class="tech-badge">SQLMap</span>
         </div>
 
         <h4>Security Impact</h4>
-        <p>Used to assess Small Organization systems, the framework has identified critical vulnerabilities including SQL injection flaws, misconfigured cloud storage, and privilege escalation vectors that were missed by commercial scanners.</p>
-      </div>
+<p>Through hands-on security labs, I've practiced identifying critical network vulnerabilities including firewall misconfigurations, insecure remote access points, and privilege escalation vectors in network services - developing skills to detect issues that automated scanners might overlook.</p>      </div>
     </div>
   </div>
 
@@ -1366,8 +1366,8 @@
         <div class="education fade-in" style="transition-delay: 0.2s">
           <h4><i class="fas fa-certificate"></i> Current Certifications & Studies:</h4>
           <ul>
-            <li><i class="fas fa-graduation-cap"></i> Cisco Certified Network Professional (CCNP)</li>
-            <li><i class="fas fa-graduation-cap"></i> AWS Academy Certified</li>
+            <li><i class="fas fa-graduation-cap"></i> Cisco Certified Network Associate (CCNA)</li>
+            <li><i class="fas fa-graduation-cap"></i> AWS Academy graduate Certified</li>
             <li><i class="fas fa-graduation-cap"></i> IBM Cybersecurity Tracker Certified</li>
           </ul>
         </div>
@@ -1375,48 +1375,48 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2>Technical Skills</h2>
-      <div class="skills-container">
-        <!-- Networking -->
-        <div class="skill-category fade-in">
-          <h3><i class="fas fa-network-wired"></i> Networking</h3>
-          <ul>
-            <li>Advanced Routing & Switching (Cisco)</li>
-            <li>SD-WAN & Cloud Networking</li>
-            <li>TroubleShoting</li>
-            <li>Network Performance Optimization</li>
-            <li>Wireless Security & Configuration</li>
-            <li>VoIP & QoS Implementation</li>
-          </ul>
-        </div>
+ <!-- Skills Section -->
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>Developing Technical Skills</h2>
+    <div class="skills-container">
+      <!-- Networking -->
+      <div class="skill-category fade-in">
+        <h3><i class="fas fa-network-wired"></i> Networking Fundamentals</h3>
+        <ul>
+          <li>Routing & Switching Concepts (Cisco)</li>
+          <li>Learning SD-WAN & Cloud Networking</li>
+          <li>Network Troubleshooting Basics</li>
+          <li>Studying Network Performance</li>
+          <li>Wireless Security Principles</li>
+          <li>VoIP & QoS Fundamentals</li>
+        </ul>
+      </div>
 
-        <!-- Cybersecurity -->
-        <div class="skill-category fade-in" style="transition-delay: 0.2s">
-          <h3><i class="fas fa-lock"></i> Cybersecurity</h3>
-          <ul>
-            <li>Penetration Testing</li>
-            <li>Ris management</li>
-            <li>Incident Response</li>
-            <li>Cryptography & PKI</li>
-          </ul>
-        </div>
+       <!-- Cybersecurity -->
+<div class="skill-category fade-in" style="transition-delay: 0.2s">
+  <h3><i class="fas fa-lock"></i> Cybersecurity Foundations</h3>
+  <ul>
+    <li>Learning Penetration Testing Techniques</li>
+    <li>Studying Risk Management Principles</li>
+    <li>Incident Response Fundamentals</li>
+    <li>Exploring Cryptography & PKI</li>
+  </ul>
+</div>
 
         <!-- Development -->
-        <div class="skill-category fade-in" style="transition-delay: 0.4s">
-          <h3><i class="fas fa-code"></i> Development</h3>
-          <ul>
-            <li>Python for Security Automation</li>
-            <li>Bash/PowerShell Scripting</li>
-            <li>Web Application Security</li>
-            <li>Secure Coding Practices</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="skill-category fade-in" style="transition-delay: 0.4s">
+  <h3><i class="fas fa-code"></i> Development Skills in Progress</h3>
+  <ul>
+    <li>Learning Python for Security Automation</li>
+    <li>Developing Bash/PowerShell Scripting Skills</li>
+    <li>Studying Web Application Security</li>
+    <li>Practicing Secure Coding Principles</li>
+  </ul>
+</div>
+</div>
+</div>
+</section>
 
 <!-- Learning Focus Section -->
 <section id="services" class="services">
@@ -1482,261 +1482,285 @@
   </footer>
 
   <script>
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+  // Header scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.innerHTML = navMenu.classList.contains('active') ?
+      '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
+  });
+
+  dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector('a');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const menu = dropdown.querySelector('.dropdown-menu');
+        menu.classList.toggle('active');
       }
     });
+  });
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdowns = document.querySelectorAll('.dropdown');
+  // Scroll animations
+  const fadeElements = document.querySelectorAll('.fade-in');
 
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      menuToggle.innerHTML = navMenu.classList.contains('active') ?
-        '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
+  const fadeInOnScroll = function() {
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight - 100) {
+        element.classList.add('active');
+      }
     });
+  };
 
-    dropdowns.forEach(dropdown => {
-      const link = dropdown.querySelector('a');
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const menu = dropdown.querySelector('.dropdown-menu');
-          menu.classList.toggle('active');
+  window.addEventListener('scroll', fadeInOnScroll);
+  window.addEventListener('load', fadeInOnScroll);
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
         }
-      });
+      }
     });
+  });
 
-    // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-in');
+  // Form submission script
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    const fadeInOnScroll = function() {
-      fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+    const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
 
-        if (elementTop < windowHeight - 100) {
-          element.classList.add('active');
-        }
+    try {
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Sending...';
+
+      const formData = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
       });
-    };
 
-    window.addEventListener('scroll', fadeInOnScroll);
-    window.addEventListener('load', fadeInOnScroll);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+      const data = await response.json();
+      alert('Message sent successfully!');
+      form.reset();
 
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-
-          // Close mobile menu if open
-          if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
-          }
-        }
-      });
-    });
-
-// Form submission script - Fixed error handling
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const form = e.target;
-  const submitButton = form.querySelector('button[type="submit"]');
-  const originalText = submitButton.innerHTML;
-  
-  try {
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'Sending...';
-    
-    const formData = {
-      name: document.getElementById('name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      message: document.getElementById('message').value.trim()
-    };
-
-    const response = await fetch('/api/submit-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalText;
     }
+  });
 
-    const data = await response.json();
-    alert('Message sent successfully!');
-    form.reset();
-    
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Failed to send message. Please try again later.');
-  } finally {
-    submitButton.disabled = false;
-    submitButton.innerHTML = originalText;
+  // Modal functionality
+  const viewButtons = document.querySelectorAll('.view-details');
+  const modals = document.querySelectorAll('.modal');
+  const closeButtons = document.querySelectorAll('.close-modal');
+
+  // Open modal when button is clicked
+  viewButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectId = button.getAttribute('data-project');
+      const modal = document.getElementById(`${projectId}-modal`);
+
+      if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          modal.classList.add('active');
+        }, 10);
+      }
+    });
+  });
+
+  // Close modal when X button is clicked
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      closeModal(modal);
+    });
+  });
+
+  // Close modal when clicking outside content
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modals.forEach(modal => {
+        if (modal.classList.contains('active')) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+
+  // Helper function to close modals
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 300);
   }
-});
 
-// Improved notification function
-function showNotification(message, isError) {
-  // Remove existing notifications
-  document.querySelectorAll('.custom-notification').forEach(el => el.remove());
+  // Particle background
+  function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = Math.floor(window.innerWidth / 10);
 
-  const notification = document.createElement('div');
-  notification.className = 'custom-notification';
-  notification.textContent = message;
-  
-  document.body.appendChild(notification);
-  
-  // Auto-remove after 5 seconds
-  setTimeout(() => {
-    notification.style.animation = 'fadeOut 0.3s ease-out';
-    setTimeout(() => notification.remove(), 300);
-  }, 5000);
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      // Random properties
+      const size = Math.random() * 3 + 1;
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      const delay = Math.random() * 5;
+      const duration = Math.random() * 10 + 10;
+      const opacity = Math.random() * 0.5 + 0.1;
+
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${posX}%`;
+      particle.style.top = `${posY}%`;
+      particle.style.opacity = opacity;
+      particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
+
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // Create floating particles
+  createParticles();
+
+  // Add floating animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Responsive adjustments
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      menuToggle.style.display = 'flex';
+    } else {
+      menuToggle.style.display = 'none';
+      navMenu.classList.remove('active');
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+
+  // Terminal typing animation
+const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["Security protocols initialized", "Systems nominal", "Ready to serve"];
+const typingDelay = 100;
+const erasingDelay = 50;
+const newTextDelay = 1500; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  }
+  else {
+    cursorSpan.classList.remove("typing");
+    setTimeout(erase, newTextDelay);
+  }
 }
 
-document.head.appendChild(style);    // Particle background
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = Math.floor(window.innerWidth / 10);
+function erase() {
+  if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  }
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
 
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-
-        // Random properties
-        const size = Math.random() * 3 + 1;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 5;
-        const duration = Math.random() * 10 + 10;
-        const opacity = Math.random() * 0.5 + 0.1;
-
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.opacity = opacity;
-        particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
-
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Create floating particles
-    createParticles();
-
-    // Add floating animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes float {
-        0% {
-          transform: translate(0, 0);
-        }
-        50% {
-          transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-        }
-        100% {
-          transform: translate(0, 0);
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Modal functionality
-    const viewDetailButtons = document.querySelectorAll('.view-details');
-    const modals = document.querySelectorAll('.modal');
-    const closeModalButtons = document.querySelectorAll('.close-modal');
-
-    // Open modal when view details button is clicked
-    viewDetailButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const projectId = button.getAttribute('data-project');
-        const modal = document.getElementById(`${projectId}-modal`);
-
-        if (modal) {
-          modal.style.display = 'block';
-          setTimeout(() => {
-            modal.classList.add('active');
-          }, 10);
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-
-    // Close modal when close button is clicked
-    closeModalButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        modal.classList.remove('active');
-        setTimeout(() => {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }, 300);
-      });
-    });
-
-    // Close modal when clicking outside content
-    modals.forEach(modal => {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-          setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-          }, 300);
-        }
-      });
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modals.forEach(modal => {
-          if (modal.style.display === 'block') {
-            modal.classList.remove('active');
-            setTimeout(() => {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }, 300);
-          }
-        });
-      }
-    });
-
-    // Responsive adjustments
-    function handleResize() {
-      if (window.innerWidth <= 768) {
-        menuToggle.style.display = 'flex';
-      } else {
-        menuToggle.style.display = 'none';
-        navMenu.classList.remove('active');
-      }
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-  </script>
+// Start the animation when page loads
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(type, newTextDelay + 250);
+});
+</script>
 </body>
 </html>
