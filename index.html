@@ -1210,11 +1210,11 @@
           <button class="btn-small view-details" data-project="security-suite">View Details <i class="fas fa-arrow-right"></i></button>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card fade-in" style="transition-delay: 0.2s">
-          <div class="project-icon">
-            <i class="fas fa-network-wired"></i>
-         </div>
+       <!-- Project 2 - Fixed unclosed div -->
+<div class="project-card fade-in" style="transition-delay: 0.2s">
+  <div class="project-icon">
+    <i class="fas fa-network-wired"></i>
+  </div>
   <h3>AWS Cloud Architecture</h3>
   <p>Designed and implemented scalable, highly available AWS infrastructure following Well-Architected Framework principles with IAM security.</p>
   <button class="btn-small view-details" data-project="cloud-architecture">View AWS Solution <i class="fas fa-arrow-right"></i></button>
@@ -1477,9 +1477,6 @@
         <a href="#"><i class="fas fa-envelope"></i></a>
       </div>
 
-      <p class="fade-in" style="transition-delay: 0.4s">&copy; 2025 KD Aegis Tech Solutions. All rights reserved.</p>
-    </div>
-     <div class="footer-copyright">
        <p>&copy; 2025 Designed by Kuanyin Deng. All Rights Reserved.</p>
      </div>
   </footer>
@@ -1558,49 +1555,43 @@
       });
     });
 
+// Form submission script - Fixed error handling
 document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  const formData = {
-    name: document.getElementById('name').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    message: document.getElementById('message').value.trim() // Verify this line
-  };
+  const form = e.target;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalText = submitButton.innerHTML;
+  
+  try {
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending...';
+    
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
 
-  // Debug: log before sending
-  console.log('Submitting:', formData);
+    const response = await fetch('/api/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
 
-  const response = await fetch('/api/submit-form', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData)
-  });
-
-    // First check if the response is JSON
-    const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
-      const text = await response.text();
-      throw new Error(text || 'Invalid server response');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
 
     const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || 'Submission failed');
-    }
-
-    // Success case
-    showNotification(data.message || 'Message sent successfully!', false);
+    alert('Message sent successfully!');
     form.reset();
-
+    
   } catch (error) {
-    console.error('Submission error:', error);
-    showNotification(
-      error.message || 'Failed to send message. Please try again later.', 
-      true
-    );
+    console.error('Error:', error);
+    alert('Failed to send message. Please try again later.');
   } finally {
     submitButton.disabled = false;
     submitButton.innerHTML = originalText;
