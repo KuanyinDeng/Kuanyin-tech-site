@@ -1180,6 +1180,246 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* NEW STYLES FOR PAGE TRANSITIONS */
+    .page-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .page-section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Update header nav active state */
+    .nav-menu li a.active {
+      color: var(--accent);
+      text-shadow: var(--neon-glow-accent);
+    }
+
+    .nav-menu li a.active::before {
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+    }
+
+    /* Service form styles */
+    .service-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(10, 25, 47, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .service-form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(5, 12, 26, 0.7);
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: var(--darkest);
+      border: none;
+      padding: 15px 25px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5);
+    }
+
+    /* Success message */
+    .form-success {
+      text-align: center;
+      padding: 40px;
+      background: rgba(10, 25, 47, 0.8);
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+    }
+
+    .form-success h3 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    /* Blog styles */
+    .blog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog-controls {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .blog-search {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 15px;
+      background: rgba(10, 25, 47, 0.8);
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      border-radius: 6px;
+      color: var(--text);
+    }
+
+    .blog-category {
+      padding: 12px 15px;
+      background: rgba(10, 25, 47, 0.8);
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      border-radius: 6px;
+      color: var(--text);
+    }
+
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .blog-post {
+      background: rgba(10, 25, 47, 0.8);
+      border-radius: 10px;
+      padding: 30px;
+      border: 1px solid rgba(0, 102, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+    }
+
+    .blog-post h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .post-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .post-category {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--secondary);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .post-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .read-more {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Contact page styles */
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: rgba(10, 25, 47, 0.8);
+      border-radius: 10px;
+      padding: 30px;
+      border: 1px solid rgba(0, 102, 255, 0.2);
+      text-align: center;
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .contact-card h3 {
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+    }
+
+    .contact-card a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-card a:hover {
+      color: var(--accent);
+      text-shadow: var(--neon-glow);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .service-form-container {
+        padding: 20px;
+      }
+
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1190,21 +1430,13 @@
   <header id="header">
     <div class="container">
       <nav>
-        <a href="#home"><img src="me.png" alt="KD Aegis Tech Solutions Logo" class="site-logo"></a>
+        <a href="#" class="logo-link"><img src="me.png" alt="KD Aegis Tech Solutions Logo" class="site-logo"></a>
 
         <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li class="dropdown">
-            <a href="#">Services <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#services">Network Design</a></li>
-              <li><a href="#services">Security Audit</a></li>
-              <li><a href="#services">Support</a></li>
-            </ul>
-          </li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+          <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+          <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
         </ul>
 
         <button id="menuToggle" class="btn btn-outline" style="display: none;">
@@ -1214,8 +1446,8 @@
     </div>
   </header>
 
-  <!-- Enhanced Hero Section -->
-<section id="home" class="hero" aria-label="Introduction">
+  <!-- Home Page -->
+  <section id="home" class="page-section active" aria-label="Introduction">
   <div class="container">
     <div class="hero-content">
       <h1 class="fade-in" data-aos="fade-up">Kuanyin Deng</h1>
@@ -1280,8 +1512,108 @@
       </rect>
     </svg>
   </div>
-</section>
-  <!-- Projects Section -->
+  </section>
+
+  <!-- Blog Page -->
+  <section id="blog" class="page-section">
+    <div class="container blog-container">
+      <h2>Cybersecurity Blog</h2>
+
+      <div class="blog-controls">
+        <input type="text" id="blog-search" class="blog-search" placeholder="Search posts...">
+
+        <select id="blog-category" class="blog-category">
+          <option value="all">All Categories</option>
+          <option value="networking">Networking</option>
+          <option value="security">Security</option>
+          <option value="cloud">Cloud</option>
+          <option value="tools">Tools</option>
+        </select>
+      </div>
+
+      <div class="blog-posts" id="blog-posts-container">
+        <!-- Blog posts will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Page -->
+  <section id="services" class="page-section">
+    <div class="container">
+      <h2>Cybersecurity Services</h2>
+
+      <div class="service-form-container">
+        <form id="service-form" class="service-form">
+          <div class="form-group">
+            <label for="service-name">Full Name</label>
+            <input type="text" id="service-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service-email">Email Address</label>
+            <input type="email" id="service-email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service-type">Service Needed</label>
+            <select id="service-type" required>
+              <option value="">Select a service</option>
+              <option value="network-design">Network Design & Implementation</option>
+              <option value="security-audit">Security Audit & Assessment</option>
+              <option value="incident-response">Incident Response</option>
+              <option value="cloud-security">Cloud Security Configuration</option>
+              <option value="other">Other Security Service</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="service-details">Details of Your Needs</label>
+            <textarea id="service-details" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Request Service</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contact" class="page-section">
+    <div class="container">
+      <h2>Contact Me</h2>
+
+      <div class="contact-methods">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>For general inquiries and support</p>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fab fa-whatsapp"></i>
+          <h3>WhatsApp</h3>
+          <p>For immediate assistance</p>
+          <a href="https://wa.me/1234567890">+1 (234) 567-890</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Location</h3>
+          <p>Based in San Francisco, CA</p>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.146581789971!2d-122.4194155846821!3d37.77492997975921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
       <h2>Featured Projects</h2>
@@ -1607,9 +1939,194 @@
        <p>&copy; 2025 Designed by Kuanyin Deng. All Rights Reserved.</p>
      </div>
   </footer>
-
   <script>
-  // Header scroll effect
+    // [Previous JavaScript remains the same until the new additions below]
+
+    // Page Navigation System
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set up page navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pageSections = document.querySelectorAll('.page-section');
+
+      // Show home page by default
+      showPage('home');
+
+      // Set up nav link clicks
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pageId = this.getAttribute('data-page');
+          showPage(pageId);
+
+          // Update active nav link
+          navLinks.forEach(navLink => navLink.classList.remove('active'));
+          this.classList.add('active');
+
+          // Close mobile menu if open
+          if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
+          }
+        });
+      });
+
+      // Set up logo click to go home
+      document.querySelector('.logo-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage('home');
+        navLinks.forEach(navLink => navLink.classList.remove('active'));
+        document.querySelector('.nav-link[data-page="home"]').classList.add('active');
+      });
+
+      // Load blog posts
+      loadBlogPosts();
+
+      // Set up service form submission
+      setupServiceForm();
+    });
+
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Blog functionality
+    function loadBlogPosts() {
+      const blogContainer = document.getElementById('blog-posts-container');
+      const searchInput = document.getElementById('blog-search');
+      const categorySelect = document.getElementById('blog-category');
+
+      // Sample blog data - in a real app you'd fetch this from a server
+      const blogPosts = [
+        {
+          id: 1,
+          title: 'Securing AWS Infrastructure: Best Practices',
+          date: 'May 15, 2023',
+          category: 'cloud',
+          excerpt: 'Learn the essential security measures every AWS deployment should implement to protect against common threats.',
+          content: 'Detailed content about AWS security...'
+        },
+        {
+          id: 2,
+          title: 'Network Segmentation Strategies for Security',
+          date: 'April 22, 2023',
+          category: 'networking',
+          excerpt: 'How proper network segmentation can significantly improve your security posture and limit breach impact.',
+          content: 'Detailed content about network segmentation...'
+        },
+        {
+          id: 3,
+          title: 'Essential Cybersecurity Tools for 2023',
+          date: 'March 10, 2023',
+          category: 'tools',
+          excerpt: 'A curated list of the most effective cybersecurity tools for various use cases and environments.',
+          content: 'Detailed content about cybersecurity tools...'
+        },
+        {
+          id: 4,
+          title: 'Implementing Zero Trust Architecture',
+          date: 'February 5, 2023',
+          category: 'security',
+          excerpt: 'Step-by-step guide to transitioning from traditional perimeter security to a Zero Trust model.',
+          content: 'Detailed content about Zero Trust...'
+        }
+      ];
+
+      // Render blog posts
+      function renderPosts(posts) {
+        blogContainer.innerHTML = '';
+
+        if (posts.length === 0) {
+          blogContainer.innerHTML = '<p>No posts found matching your criteria.</p>';
+          return;
+        }
+
+        posts.forEach(post => {
+          const postEl = document.createElement('div');
+          postEl.className = 'blog-post';
+          postEl.innerHTML = `
+            <h3>${post.title}</h3>
+            <div class="post-meta">
+              <span>${post.date}</span>
+              <span class="post-category">${post.category}</span>
+            </div>
+            <p class="post-excerpt">${post.excerpt}</p>
+            <a href="#" class="read-more" data-post-id="${post.id}">Read more <i class="fas fa-arrow-right"></i></a>
+          `;
+          blogContainer.appendChild(postEl);
+        });
+
+        // Set up read more buttons
+        document.querySelectorAll('.read-more').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const postId = this.getAttribute('data-post-id');
+            const post = blogPosts.find(p => p.id == postId);
+            alert(`Viewing post: ${post.title}\n\n${post.content}`);
+          });
+        });
+      }
+
+      // Filter posts based on search and category
+      function filterPosts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const category = categorySelect.value;
+
+        const filtered = blogPosts.filter(post => {
+          const matchesSearch = post.title.toLowerCase().includes(searchTerm) ||
+                              post.excerpt.toLowerCase().includes(searchTerm);
+          const matchesCategory = category === 'all' || post.category === category;
+          return matchesSearch && matchesCategory;
+        });
+
+        renderPosts(filtered);
+      }
+
+      // Initial render
+      renderPosts(blogPosts);
+
+      // Set up event listeners
+      searchInput.addEventListener('input', filterPosts);
+      categorySelect.addEventListener('change', filterPosts);
+    }
+
+    // Service form functionality
+    function setupServiceForm() {
+      const serviceForm = document.getElementById('service-form');
+
+      serviceForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+          name: document.getElementById('service-name').value,
+          email: document.getElementById('service-email').value,
+          serviceType: document.getElementById('service-type').value,
+          details: document.getElementById('service-details').value
+        };
+
+        // In a real app, you would send this to your server
+        console.log('Service request submitted:', formData);
+
+        // Show success message
+        const formContainer = document.querySelector('.service-form-container');
+        formContainer.innerHTML = `
+          <div class="form-success">
+            <h3>Thank you for your request!</h3>
+            <p>I've received your service request and will get back to you within 24 hours.</p>
+            <button class="btn" onclick="showPage('home')">Return Home</button>
+          </div>
+        `;
+      });
+    }
+     // Header scroll effect
   const header = document.getElementById('header');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 50) {
@@ -1936,6 +2453,6 @@ document.getElementById('card-expiry').addEventListener('input', function(e) {
   }
   e.target.value = value;
 });
-</script>
+  </script>
 </body>
 </html>
