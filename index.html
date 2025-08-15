@@ -766,6 +766,24 @@
       resize: vertical;
     }
 
+    /* LinkedIn specific styling */
+.contact-card.linkedin {
+  border: 1px solid #0077b5; /* LinkedIn blue */
+}
+
+.contact-card.linkedin i {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.contact-card.linkedin a {
+  color: #0077b5;
+  font-weight: bold;
+}
+
+.contact-card.linkedin:hover {
+  box-shadow: 0 0 15px rgba(0, 119, 181, 0.4); /* Blue glow */
+}
+
     /* Footer */
     footer {
       background: rgba(5, 12, 26, 0.95);
@@ -1349,7 +1367,6 @@
 
         <ul class="nav-menu">
           <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-          <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
           <li><a href="#" class="nav-link" data-page="services">Services</a></li>
           <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
         </ul>
@@ -1367,10 +1384,7 @@
       <div class="hero-content">
         <h1 class="fade-in" data-aos="fade-up">Kuanyin Deng</h1>
         <p class="subtitle fade-in" data-aos="fade-up" data-aos-delay="100"> IT Support Engineer |
-          Cybersecurity and Cisco Network Defence Scholar
-          | Skilled in Threat Detection,
-          Network Security,and Risk Management |
-          Certified in Cybersecurity Fundamentals & Cisco Networking</p>
+          Cybersecurity and Cisco Network Defence Scholar</p>
         <p class="hero-description fade-in" data-aos="fade-up" data-aos-delay="200">
           Architecting secure networks | Hunting vulnerabilities before they hunt you
         </p>
@@ -1380,12 +1394,6 @@
             <span>Explore Services</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#projects" class="btn btn-secondary" aria-label="View projects">
-            <span>View Projects</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </a>
         </div>
@@ -1433,29 +1441,6 @@
     </div>
   </section>
 
-  <!-- Blog Page -->
-  <section id="blog" class="page-section">
-    <div class="container blog-container">
-      <h2>Cybersecurity Blog</h2>
-
-      <div class="blog-controls">
-        <input type="text" id="blog-search" class="blog-search" placeholder="Search posts...">
-
-        <select id="blog-category" class="blog-category">
-          <option value="all">All Categories</option>
-          <option value="networking">Networking</option>
-          <option value="security">Security</option>
-          <option value="cloud">Cloud</option>
-          <option value="tools">Tools</option>
-        </select>
-      </div>
-
-      <div class="blog-posts" id="blog-posts-container">
-        <!-- Blog posts will be loaded here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
   <!-- Services Page -->
   <section id="services" class="page-section">
     <div class="container">
@@ -1482,7 +1467,7 @@
               <option value="incident-response">Incident Response</option>
               <option value="cloud-security">Cloud Security Configuration</option>
               <option value="other">Other Security Service</option>
-                <option value="network-design">Cyber Support Center</option>
+              <option value="network-design">Cyber Support Center</option>
               <option value="security-audit">Report a Threat</option>
               <option value="incident-response">Tech Assistance</option>
               <option value="cloud-security">System Support Request</option>
@@ -1505,23 +1490,37 @@
   <section id="contact" class="page-section">
     <div class="container">
       <h2>Contact Me</h2>
+      <p class="subtitle" style="text-align: center; margin-bottom: 40px;">
+      Connect with me through any of these channels
+    </p>
 
       <div class="contact-methods">
         <div class="contact-card">
           <i class="fas fa-envelope"></i>
           <h3>Email</h3>
           <p>For general inquiries and support</p>
-            <a href="mailto:kuanyin.secnet@gmail.com?subject=Service%20Request&body=Hello%2C%20I%20would%20like%20to%20request%20your%20IT%20services.">
-    kuanyin.secnet@gmail.com
-</a>
-
+          <a href="mailto:kuanyin.secnet@gmail.com?subject=Service%20Request&body=Hello%2C%20I%20would%20like%20to%20request%20your%20IT%20services.">
+            kuanyin.secnet@gmail.com
+          </a>
         </div>
 
         <div class="contact-card">
           <i class="fab fa-whatsapp"></i>
           <h3>WhatsApp</h3>
           <p>For immediate assistance</p>
-<a href="https://wa.me/201013049896" target="_blank">+20 101 304 9896</a></div>
+          <a href="https://wa.me/201013049896" target="_blank">+20 101 304 9896</a>
+        </div>
+
+        <div class="contact-card linkedin fade-in">...</div>
+        <!-- LinkedIn Card -->
+<div class="contact-card fade-in" style="transition-delay: 0.1s">
+  <i class="fab fa-linkedin"></i>
+  <h3>LinkedIn</h3>
+  <p>Professional networking and updates</p>
+  <a href="https://www.linkedin.com/in/andrew-kuanyin-9b5aaa1a8" target="_blank">
+    Connect on LinkedIn
+  </a>
+</div>
 
         <div class="contact-card">
           <i class="fas fa-map-marker-alt"></i>
@@ -1539,174 +1538,12 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="project-grid">
-        <!-- Project 1 -->
-        <div class="project-card fade-in">
-          <div class="project-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Small Organizations Network Security Suite</h3>
-          <p>Comprehensive security solution featuring real-time threat detection, automated vulnerability scanning.</p>
-          <button class="btn-small view-details" data-project="security-suite">View Details <i class="fas fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Project 2 - Fixed unclosed div -->
-        <div class="project-card fade-in" style="transition-delay: 0.2s">
-          <div class="project-icon">
-            <i class="fas fa-network-wired"></i>
-          </div>
-          <h3>AWS Cloud Architecture</h3>
-          <p>Designed and implemented scalable, highly available AWS infrastructure following Well-Architected Framework principles with IAM security.</p>
-          <button class="btn-small view-details" data-project="cloud-architecture">View AWS Solution <i class="fas fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card fade-in" style="transition-delay: 0.4s">
-          <div class="project-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <h3>Penetration Testing Framework</h3>
-          <p>Custom-built framework for comprehensive security assessments, combining automated scanning with manual testing techniques for thorough vulnerability analysis.</p>
-          <button class="btn-small view-details" data-project="pentest-framework">View Framework <i class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Modals -->
-  <!-- Enterprise Network Security Suite Modal -->
-  <div class="modal" id="security-suite-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3><i class="fas fa-shield-alt"></i> Small Organization Network Security Suite</h3>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>Project Overview</h4>
-        <p>This comprehensive security suite was developed to protect large-scale Small Organization networks against modern cyber threats. The solution integrates multiple security layers into a unified platform with centralized management.</p>
-
-        <img src="value.jpg" alt="Network Security Dashboard" class="modal-image">
-
-        <h4>Key Features</h4>
-        <ul>
-          <li><strong>AWS Network Firewall</strong> with stateful traffic inspection</li>
-          <li><strong>Amazon GuardDuty</strong> for continuous vulnerability monitoring</li>
-          <li><strong>AWS Security Hub</strong> for centralized security management</li>
-          <li><strong>AWS Config</strong> for compliance reporting (ISO 27001, NIST, GDPR)</li>
-          <li><strong>Amazon Detective</strong> for behavioral anomaly detection</li>
-          <li><strong>AWS IAM</strong> with permission boundaries and SCPs</li>
-        </ul>
-
-        <h4>AWS Academy Implementation</h4>
-        <p>Developed through AWS Academy curriculum as serverless and containerized microservices using AWS best practices for scalability and security:</p>
-
-        <div class="modal-tech">
-          <span class="tech-badge">AWS Lambda</span>
-          <span class="tech-badge">Amazon EKS</span>
-          <span class="tech-badge">Amazon OpenSearch</span>
-          <span class="tech-badge">AWS SageMaker</span>
-          <span class="tech-badge">AWS Amplify</span>
-          <span class="tech-badge">AWS SDK (Go)</span>
-        </div>
-
-        <h4>AWS Academy Security Outcomes</h4>
-        <p>As part of AWS Academy learning modules, this solution demonstrates security improvements including potential reduction of incidents by 78% and improved mean time to detection (MTTD) from 48 hours to 15 minutes using native AWS security services.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- AWS Cloud Architecture Modal -->
-  <div class="modal" id="cloud-architecture-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3><i class="fab fa-aws"></i> AWS Academy Cloud Architecture</h3>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>AWS Academy Architecture Overview</h4>
-        <p>This AWS Academy project demonstrates secure, high-performance infrastructure following AWS Well-Architected Framework principles with centralized security and operational visibility.</p>
-        <img src="cloud.jpg" alt="AWS Network Diagram" class="modal-image">
-
-        <h4>AWS Design Principles</h4>
-        <ul>
-          <li>AWS IAM with least-privilege access at all layers</li>
-          <li>AWS CloudFormation for infrastructure-as-code</li>
-          <li>AWS Transit Gateway for global connectivity</li>
-          <li>Security Groups & NACLs for microsegmentation</li>
-          <li>Auto Scaling based on CloudWatch metrics</li>
-          <li>AWS CloudTrail + Config for centralized monitoring</li>
-        </ul>
-
-        <h4>AWS Academy Technical Components</h4>
-        <p>Through AWS Academy labs, I implemented this architecture using native AWS services:</p>
-
-        <div class="modal-tech">
-          <span class="tech-badge">AWS VPC</span>
-          <span class="tech-badge">Transit Gateway</span>
-          <span class="tech-badge">Direct Connect</span>
-          <span class="tech-badge">Network Firewall</span>
-          <span class="tech-badge">GuardDuty</span>
-          <span class="tech-badge">CloudWatch</span>
-        </div>
-
-        <h4>AWS Academy Performance Analysis</h4>
-        <p>As part of AWS Academy coursework, this architecture demonstrated enterprise-grade capabilities, simulating an environment handling 2M+ daily transactions with 99.999% availability and 42% lower latency than equivalent on-premises infrastructure in test scenarios.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Penetration Testing Framework Modal -->
-  <div class="modal" id="pentest-framework-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3><i class="fas fa-lock"></i> Penetration Testing Framework</h3>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>Framework Overview</h4>
-        <p>This custom penetration testing framework was developed to conduct comprehensive security assessments across web applications, network infrastructure, and cloud environments with customizable testing modules.</p>
-
-        <img src="cyber.jpg" alt="Penetration Testing Interface" class="modal-image">
-
-        <h4>Key Capabilities</h4>
-        <ul>
-          <li>Automated vulnerability scanning with customizable test profiles</li>
-          <li>Manual testing tools integration (Burp Suite, Metasploit, Maltego, etc.)</li>
-          <li>Custom exploit development environment</li>
-          <li>Reporting engine with risk prioritization</li>
-          <li>Remediation guidance with code samples</li>
-          <li>Continuous monitoring mode</li>
-        </ul>
-
-        <h4>Technical Implementation</h4>
-        <p>The framework combines multiple open-source tools with custom modules:</p>
-
-        <div class="modal-tech">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Docker</span>
-          <span class="tech-badge">Maltego</span>
-          <span class="tech-badge">Burpsuite</span>
-          <span class="tech-badge">Nmap</span>
-          <span class="tech-badge">packet tracer</span>
-          <span class="tech-badge">SQLMap</span>
-        </div>
-
-        <h4>Security Impact</h4>
-        <p>Through hands-on security labs, I've practiced identifying critical network vulnerabilities including firewall misconfigurations, insecure remote access points, and privilege escalation vectors in network services - developing skills to detect issues that automated scanners might overlook.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
       <h2>About Me</h2>
       <div class="about-content">
-        <p class="fade-in">I'm Kuanyin Deng, a IT and cybersecurity Aspiring and network support with a passion for building secure, high-performance digital infrastructure. With spanning network design, security protocols, My dream to help organizations protect their assets while enabling growth through technology.</p>
+        <p class="fade-in">I'm Kuanyin Deng, IT and cybersecurity Aspiring and network support with a passion for building secure, high-performance digital infrastructure. With spanning network design, security protocols, My dream to help organizations protect their assets while enabling growth through technology.</p>
 
         <div class="education fade-in" style="transition-delay: 0.2s">
           <h4><i class="fas fa-certificate"></i> Current Certifications & Studies:</h4>
@@ -1714,6 +1551,7 @@
             <li><i class="fas fa-graduation-cap"></i> Cisco Certified Network Associate (CCNA)</li>
             <li><i class="fas fa-graduation-cap"></i> AWS Academy graduate Certified</li>
             <li><i class="fas fa-graduation-cap"></i> IBM Cybersecurity Tracker Certified</li>
+                        <li><i class="fas fa-graduation-cap"></i> Certified In Career direction programs (EFE Egypt)</li>
           </ul>
         </div>
       </div>
@@ -1796,19 +1634,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact-form-section" class="contact">
-    <div class="container">
-      <h2> Reach Out</h2>
-      <form id="contact-form" action="mailto:andrewkuanyin497@gmail.com" method="post" enctype="text/plain" class="fade-in">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn fade-in">Send Message <i class="fas fa-paper-plane"></i></button>
-      </form>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -1864,9 +1689,6 @@
         document.querySelector('.nav-link[data-page="home"]').classList.add('active');
       });
 
-      // Load blog posts
-      loadBlogPosts();
-
       // Set up service form submission
       setupServiceForm();
     });
@@ -1882,106 +1704,6 @@
 
       // Scroll to top
       window.scrollTo(0, 0);
-    }
-
-    // Blog functionality
-    function loadBlogPosts() {
-      const blogContainer = document.getElementById('blog-posts-container');
-      const searchInput = document.getElementById('blog-search');
-      const categorySelect = document.getElementById('blog-category');
-
-      // Sample blog data - in a real app you'd fetch this from a server
-      const blogPosts = [
-        {
-          id: 1,
-          title: 'Securing AWS Infrastructure: Best Practices',
-          date: 'May 15, 2023',
-          category: 'cloud',
-          excerpt: 'Learn the essential security measures every AWS deployment should implement to protect against common threats.',
-          content: 'Detailed content about AWS security...'
-        },
-        {
-          id: 2,
-          title: 'Network Segmentation Strategies for Security',
-          date: 'April 22, 2023',
-          category: 'networking',
-          excerpt: 'How proper network segmentation can significantly improve your security posture and limit breach impact.',
-          content: 'Detailed content about network segmentation...'
-        },
-        {
-          id: 3,
-          title: 'Essential Cybersecurity Tools for 2023',
-          date: 'March 10, 2023',
-          category: 'tools',
-          excerpt: 'A curated list of the most effective cybersecurity tools for various use cases and environments.',
-          content: 'Detailed content about cybersecurity tools...'
-        },
-        {
-          id: 4,
-          title: 'Implementing Zero Trust Architecture',
-          date: 'February 5, 2023',
-          category: 'security',
-          excerpt: 'Step-by-step guide to transitioning from traditional perimeter security to a Zero Trust model.',
-          content: 'Detailed content about Zero Trust...'
-        }
-      ];
-
-      // Render blog posts
-      function renderPosts(posts) {
-        blogContainer.innerHTML = '';
-
-        if (posts.length === 0) {
-          blogContainer.innerHTML = '<p>No posts found matching your criteria.</p>';
-          return;
-        }
-
-        posts.forEach(post => {
-          const postEl = document.createElement('div');
-          postEl.className = 'blog-post';
-          postEl.innerHTML = `
-            <h3>${post.title}</h3>
-            <div class="post-meta">
-              <span>${post.date}</span>
-              <span class="post-category">${post.category}</span>
-            </div>
-            <p class="post-excerpt">${post.excerpt}</p>
-            <a href="#" class="read-more" data-post-id="${post.id}">Read more <i class="fas fa-arrow-right"></i></a>
-          `;
-          blogContainer.appendChild(postEl);
-        });
-
-        // Set up read more buttons
-        document.querySelectorAll('.read-more').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const postId = this.getAttribute('data-post-id');
-            const post = blogPosts.find(p => p.id == postId);
-            alert(`Viewing post: ${post.title}\n\n${post.content}`);
-          });
-        });
-      }
-
-      // Filter posts based on search and category
-      function filterPosts() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const category = categorySelect.value;
-
-        const filtered = blogPosts.filter(post => {
-          const matchesSearch = post.title.toLowerCase().includes(searchTerm) ||
-                              post.excerpt.toLowerCase().includes(searchTerm);
-          const matchesCategory = category === 'all' || post.category === category;
-          return matchesSearch && matchesCategory;
-        });
-
-        renderPosts(filtered);
-      }
-
-      // Initial render
-      renderPosts(blogPosts);
-
-      // Set up event listeners
-      searchInput.addEventListener('input', filterPosts);
-      categorySelect.addEventListener('change', filterPosts);
     }
 
     // Service form functionality
@@ -2085,65 +1807,6 @@
         }
       });
     });
-
-    // Modal functionality
-    const viewButtons = document.querySelectorAll('.view-details');
-    const modals = document.querySelectorAll('.modal');
-    const closeButtons = document.querySelectorAll('.close-modal');
-
-    // Open modal when button is clicked
-    viewButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const projectId = button.getAttribute('data-project');
-        const modal = document.getElementById(`${projectId}-modal`);
-
-        if (modal) {
-          modal.style.display = 'block';
-          document.body.style.overflow = 'hidden';
-          setTimeout(() => {
-            modal.classList.add('active');
-          }, 10);
-        }
-      });
-    });
-
-    // Close modal when X button is clicked
-    closeButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-      });
-    });
-
-    // Close modal when clicking outside content
-    modals.forEach(modal => {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal(modal);
-        }
-      });
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modals.forEach(modal => {
-          if (modal.classList.contains('active')) {
-            closeModal(modal);
-          }
-        });
-      }
-    });
-
-    // Helper function to close modals
-    function closeModal(modal) {
-      modal.classList.remove('active');
-      setTimeout(() => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }, 300);
-    }
 
     // Particle background
     function createParticles() {
